@@ -90,7 +90,7 @@ public class FinalPractice {
         if (root == null){
             return 0;
         }
-        
+
         int sum = 0;
 
         if (root.left != null || root.right != null){
@@ -103,6 +103,27 @@ public class FinalPractice {
         sum += sumOddBranchNodes(root.right);
 
         return sum;
+    }
+
+    public static Map countOccurrences(ListNode head){
+
+        Map<Integer, Integer> numMap = new HashMap<>();
+
+
+        ListNode current = head;
+
+        while (current != null){
+            if (!numMap.containsKey(current.data)){
+                numMap.put(current.data, 1);
+            } else {
+                numMap.put(current.data, numMap.get(current.data) + 1);
+            }
+
+            current = current.next;
+        }
+
+
+        return numMap;
     }
 
 }

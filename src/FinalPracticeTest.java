@@ -1,5 +1,8 @@
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.jupiter.api.Test;
 
 public class FinalPracticeTest {
@@ -258,5 +261,77 @@ public class FinalPracticeTest {
         TreeNode root = null;
         int actual = FinalPractice.sumOddBranchNodes(root);
         assertEquals(0, actual);
+    }
+
+
+    /*
+     * 
+     */
+
+    @Test
+    void testCountOccurrences_typicalCase() {
+        ListNode list = new ListNode(4, new ListNode(34, new ListNode(4, new ListNode(16,
+                new ListNode(4, new ListNode(16, new ListNode(29, new ListNode(8, new ListNode(8)))))))));
+
+        Map<Integer, Integer> expected = Map.of(
+                4, 3,
+                34, 1,
+                16, 2,
+                29, 1,
+                8, 2
+        );
+
+        Map<Integer, Integer> actual = FinalPractice.countOccurrences(list);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testCountOccurrences_allUnique() {
+        ListNode list = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4))));
+
+        Map<Integer, Integer> expected = Map.of(
+                1, 1,
+                2, 1,
+                3, 1,
+                4, 1
+        );
+
+        Map<Integer, Integer> actual = FinalPractice.countOccurrences(list);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testCountOccurrences_allSame() {
+        ListNode list = new ListNode(9, new ListNode(9, new ListNode(9)));
+
+        Map<Integer, Integer> expected = Map.of(9, 3);
+
+        Map<Integer, Integer> actual = FinalPractice.countOccurrences(list);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testCountOccurrences_emptyList() {
+        ListNode list = null;
+
+        Map<Integer, Integer> expected = new HashMap<>();
+
+        Map<Integer, Integer> actual = FinalPractice.countOccurrences(list);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testCountOccurrences_singleNode() {
+        ListNode list = new ListNode(42);
+
+        Map<Integer, Integer> expected = Map.of(42, 1);
+
+        Map<Integer, Integer> actual = FinalPractice.countOccurrences(list);
+
+        assertEquals(expected, actual);
     }
 }
