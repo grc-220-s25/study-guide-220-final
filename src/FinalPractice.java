@@ -40,6 +40,9 @@ public class FinalPractice {
     }
 
     public static int largestOfLastThree(ListNode head){
+        if (head == null){
+            return 0;
+        }
         ListNode current = head;
 
         Queue<Integer> lastThree = new LinkedList<>();
@@ -62,4 +65,44 @@ public class FinalPractice {
 
         return maxNum;
     }
+
+    public static int sumLeafEvenNodes(TreeNode root){
+
+        int sum = 0;
+
+        if (root == null){
+            return 0;
+        }
+
+        if (root.left == null && root.right == null){
+            if (root.data % 2 == 0){
+                sum += root.data;
+            }
+        }
+
+        sum += sumLeafEvenNodes(root.left);
+        sum += sumLeafEvenNodes(root.right);
+
+        return sum;
+    }
+
+    public static int sumOddBranchNodes(TreeNode root){
+        if (root == null){
+            return 0;
+        }
+        
+        int sum = 0;
+
+        if (root.left != null || root.right != null){
+            if (root.data % 2 != 0){
+                sum += root.data;
+            }
+        }
+
+        sum += sumOddBranchNodes(root.left);
+        sum += sumOddBranchNodes(root.right);
+
+        return sum;
+    }
+
 }
