@@ -17,7 +17,17 @@ public class FinalPractice {
      */
     public static int oddIndexSum(ListNode head) {
         // TODO: implement this AND MAKE MORE UNIT TESTS FOR IT
-        return -1;
+        if (head == null) return 0;
+
+        int idx = 0;
+        int sum = 0;
+        ListNode current = head;
+        while (current != null) {
+            if (idx % 2 != 0) sum += current.data;
+            idx++;
+            current = current.next;
+        }
+        return sum;
     }
 
     // TODO: implement the rest of the study guide AND MAKE GOOD UNIT TESTS
