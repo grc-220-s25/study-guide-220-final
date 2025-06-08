@@ -16,7 +16,7 @@ public class FinalPracticeTest {
     void testOddIndexSum_ZeroOnlyPassedIN(){
         ListNode list = new ListNode(0);
         int actual = FinalPractice.oddIndexSum(list);
-        assertEquals(-1, actual);
+        assertEquals(0, actual);
     }
     @Test
     void testOddIndexSum_NullOnlyPassedIN(){
