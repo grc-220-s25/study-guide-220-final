@@ -80,4 +80,64 @@ public class FinalPracticeTest {
         int actual = FinalPractice.evenIndexSum(list);
         assertEquals(-13, actual);
     }
+
+    //TODO: Make tests for LargestOFLastThree
+    @Test
+    void testlargestOfLastThree_LargestIsActuallyLargestOfThree(){
+        ListNode list = new ListNode(7,
+    new ListNode(3,
+    new ListNode(19,
+    new ListNode(21,
+    new ListNode(14,
+    new ListNode(33,
+    new ListNode(8,
+    new ListNode(26,
+    new ListNode(11,
+    new ListNode(5))))))))));
+    int actual = FinalPractice.largestOfLastThree(list);
+    assertEquals(26, actual);
+    }
+    @Test
+    void testlargestOfLastThree_AllNegative(){
+        ListNode list = new ListNode(-7,
+    new ListNode(-3,
+    new ListNode(-19,
+    new ListNode(-21,
+    new ListNode(-14,
+    new ListNode(-33,
+    new ListNode(-8,
+    new ListNode(-26,
+    new ListNode(-11,
+    new ListNode(-5))))))))));
+    int actual = FinalPractice.largestOfLastThree(list);
+    assertEquals(-5, actual);
+    }
+    @Test
+    void testlargestOfLastThree_OnlyNull(){
+    int actual = FinalPractice.largestOfLastThree(null);
+    assertEquals(0, actual);
+    }
+    @Test
+    void testlargestOfLastThree_OnlyOneValue(){
+    ListNode list = new ListNode(100);
+    int actual = FinalPractice.largestOfLastThree(list);
+    assertEquals(100, actual);
+    }
+    @Test
+    void testlargestOfLastThree_OnlyThreeNodes(){
+    ListNode list = new ListNode(10,
+    new ListNode(100,
+    new ListNode(1000)));
+    int actual = FinalPractice.largestOfLastThree(list);
+    assertEquals(1000, actual);
+    }
+    @Test
+    void testlargestOfLastThree_AllTheSame(){
+    ListNode list = new ListNode(100,
+    new ListNode(1000,
+    new ListNode(1000)));
+    int actual = FinalPractice.largestOfLastThree(list);
+    assertEquals(1000, actual);
+    }
+     
 }

@@ -60,4 +60,19 @@ public class FinalPractice {
         }
         return sum;
      }
-}
+     /*
+      * Given a reference to the head of a linked list, return the largest of only the last 3 values of the list.
+        Example:
+        Linked List:
+        7 -> 3 -> 19 -> 21 -> 14 -> 33 -> 8 -> 26 -> 11 -> 5
+        Expected Answer: 26
+        Last 3 values are: 26  11  5, the largest of which is 26
+        POSSIBLE VARIATION: Largest of last 4 values
+      */
+     public static int largestOfLastThree(ListNode head){
+        return 0;
+     }
+     public static int largestOfLastFour(ListNode head){
+        return 0;
+     }
+}   
