@@ -47,4 +47,7 @@ public class FinalPractice {
     }
 
     // TODO: implement the rest of the study guide AND MAKE GOOD UNIT TESTS
+     public static int evenIndexSum(ListNode head) {
+        return 0;
+     }
 }
