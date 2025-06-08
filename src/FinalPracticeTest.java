@@ -9,8 +9,38 @@ public class FinalPracticeTest {
         int actual = FinalPractice.oddIndexSum(list);
         assertEquals(95, actual);
     }
+    
 
     // TODO: Make more tests for oddIndexSum
-
+    @Test
+    void testOddIndexSum_ZeroOnlyPassedIN(){
+        ListNode list = new ListNode(0);
+        int actual = FinalPractice.oddIndexSum(list);
+        assertEquals(-1, actual);
+    }
+    @Test
+    void testOddIndexSum_NullOnlyPassedIN(){
+        int actual = FinalPractice.oddIndexSum(null);
+        assertEquals(0, actual);
+    }
+    @Test
+    void testOddIndexSum_OnlyOneNegativeAtFirstIndexPassedIN(){
+        ListNode list = new ListNode(0, new ListNode(-10));
+        int actual = FinalPractice.oddIndexSum(list);
+        assertEquals(-10, actual);
+    }
+    @Test
+    void testOddIndexSum_AllEvenOnlyPassedIN(){
+        ListNode list = new ListNode(0, new ListNode(2, new ListNode(4, new ListNode(6, new ListNode(8, new ListNode(10))))));
+        int actual = FinalPractice.oddIndexSum(list);
+        assertEquals(18, actual);
+    }
+    @Test
+    void testOddIndexSum_AllNegativeOnlyPassedIN(){
+        ListNode list = new ListNode(-1, new ListNode(-2, new ListNode(-4, new ListNode(-6, new ListNode(-8, new ListNode(-10))))));
+        int actual = FinalPractice.oddIndexSum(list);
+        assertEquals(-18, actual);
+    }
+    
     // TODO: Make thorough tests for ALL the questions on the study guide
 }
