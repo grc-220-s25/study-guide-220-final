@@ -70,7 +70,32 @@ public class FinalPractice {
         POSSIBLE VARIATION: Largest of last 4 values
       */
      public static int largestOfLastThree(ListNode head){
-        return 0;
+        if (head == null) return 0;
+        int first = Integer.MIN_VALUE;
+        int second = Integer.MIN_VALUE;
+        int third = Integer.MIN_VALUE;
+        int counter = 0;
+        while (head != null && head.next != null && head.next.next != null) {
+            first = head.data;
+            second = head.next.data;
+            third = head.next.next.data;
+            counter++;
+            head = head.next;
+        }
+
+        return counter;
+
+        /*
+         First we check if its null and if so return 0;
+
+         create varible called largests value of last three
+
+         loop through using the while loop, and checking if the currentvalue is larger than the next.
+
+         We will only start checking when head.next.next.next == null meaning that we are at the last three.
+
+         from there we will start updating the value starting at that node.data
+         */
      }
      public static int largestOfLastFour(ListNode head){
         return 0;
