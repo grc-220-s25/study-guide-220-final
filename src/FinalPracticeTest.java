@@ -79,5 +79,91 @@ public class FinalPracticeTest {
         assertEquals(26, actual);
     }
 
-    
+    // *        12
+    // *      /    \
+    // *     6      18
+    // *    / \    /  \
+    // *   4   8  16   20
+    // *  /               \
+    // * 3                22
+
+    @Test
+    void testEvenSumLeaf_mixedTree() {
+        TreeNode root = new TreeNode(12, new TreeNode(6, 
+        new TreeNode(4, new TreeNode(3), null), new TreeNode(8)), 
+        new TreeNode(18, new TreeNode(16), new TreeNode(20, null, new TreeNode(22))));
+        int actual = FinalPractice.evenSumLeaf(root);
+        assertEquals(46, actual);
+    }
+
+    @Test
+    void testEvenSumLeaf_nullRootTree() {
+        TreeNode root = null;
+        int actual = FinalPractice.evenSumLeaf(root);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    void testEvenSumLeaf_onlyOddRootTree() {
+        TreeNode root = new TreeNode(5);
+        int actual = FinalPractice.evenSumLeaf(root);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    void testEvenSumLeaf_onlyEvenRootTree() {
+        TreeNode root = new TreeNode(10);
+        int actual = FinalPractice.evenSumLeaf(root);
+        assertEquals(10, actual);
+    }
+
+
+    // * Tree:
+    //  *          -2
+    //  *          / \
+    //  *        -6  -4
+    //  *       /      \
+    //  *     -8       -10
+    @Test
+    void testEvenSumLeaf_onlyNegativeEvenTree() {
+        TreeNode root = new TreeNode(-2,
+            new TreeNode(-6,
+                new TreeNode(-8),
+                null
+            ),
+            new TreeNode(-4, null,
+                new TreeNode(-10)
+            )
+        );
+        int actual = FinalPractice.evenSumLeaf(root);
+        assertEquals(-18, actual);
+    }
+
+    // * Tree:
+    // *             10
+    // *            /  \
+    // *          -5    6
+    // *         / \     \
+    // *        3   0     -2
+    // *             \
+    // *              7
+    // *
+    // * Mixed positive, negative, and zero (four levels)
+    // */
+    @Test
+    void testEvenSumLeaf_mixedTreeFourLevels() {
+        TreeNode root = new TreeNode(10,
+            new TreeNode(-5,
+                new TreeNode(3),
+                new TreeNode(0, null,
+                    new TreeNode(7)
+                )
+            ),
+            new TreeNode(6, null,
+                new TreeNode(-2)
+            )
+        );
+        int actual = FinalPractice.evenSumLeaf(root);
+        assertEquals(-2, actual);
+    }
 }
