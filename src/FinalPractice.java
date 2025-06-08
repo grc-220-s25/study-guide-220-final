@@ -77,5 +77,9 @@ public class FinalPractice {
        return maxOfFour;
      }
     }
+
+    public static int treeNodeEven(TreeNode node) {
+        return -1;
+    }
 }
 
