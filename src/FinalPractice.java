@@ -48,6 +48,16 @@ public class FinalPractice {
 
     // TODO: implement the rest of the study guide AND MAKE GOOD UNIT TESTS
      public static int evenIndexSum(ListNode head) {
-        return 0;
+        if (head == null) return 0;
+        int currentIndex = 0;
+        int sum = 0;
+        while (head != null) {
+            if (currentIndex % 2 == 0) {
+                sum+= head.data;
+            }
+            currentIndex++;
+            head = head.next;
+        }
+        return sum;
      }
 }
