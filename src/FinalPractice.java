@@ -1,3 +1,4 @@
+
 public class FinalPractice {
     public static void main(String[] args) {
         // Feel free to call your methods here to experiment
@@ -32,6 +33,33 @@ public class FinalPractice {
         return sum;
     }
 
-    // TODO: implement the rest of the study guide AND MAKE GOOD UNIT TESTS
-    }
+    public static int findLargestofLastThree(ListNode head) {
+        if (head == null) return 0;
+
+        ListNode slow = head;
+        ListNode fast = head;
+
+        for (int i = 0; i < 2; i++) {
+            if (fast == null) {
+                return 0;
+            }
+            fast = fast.next;
+        }
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+
+        if (slow == null || slow.next == null || slow.next.next == null) {
+            return 0;
+        }
+        
+        int first = slow.data;
+        int second = slow.next.data;
+        int third = slow.next.next.data;
+
+        return Math.max(third, Math.max(first, second));
+        }
+}
 
