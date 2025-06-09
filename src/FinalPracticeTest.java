@@ -31,11 +31,20 @@ public class FinalPracticeTest {
         int actual = FinalPractice.LargestOfLastThree(list);
         assertEquals(55, actual);
     }
-    
+
     @Test
     void testForLargestFourValues() {
         ListNode list = new ListNode(4, new ListNode(8, new ListNode(15, new ListNode(16, new ListNode(23, new ListNode(55, new ListNode(22, new ListNode(29, new ListNode(34)))))))));
         int actual = FinalPractice.LargestOfLastThree(list);
         assertEquals(55, actual);
     }
-}
+    @Test
+    public void testForLeafNodeEven() {
+        TreeNode root = new TreeNode(2,
+            new TreeNode(4),
+            new TreeNode(6, new TreeNode(8), null));
+            assertEquals(12, FinalPractice.treeNodeEven(root));
+        }
+    }
+        
+

@@ -84,11 +84,25 @@ public class FinalPractice {
         int sum = 0;
         if(node.left == null && node.right == null) {
             if(node.data % 2 == 0) {
-                sum++;
+                sum += node.data;
             }
         }
         sum += treeNodeEven(node.left);
         sum += treeNodeEven(node.right);
+        return sum;
+    }
+
+    public static int branchNodeOdd(TreeNode node) {
+        if(node == null) return 0;
+
+        int sum = 0;
+        if(node.left != null && node.right != null) {
+            if(node.data % 2 != 0) {
+                sum += node.data;
+            }
+        }
+        sum += branchNodeOdd(node.left);
+        sum += branchNodeOdd(node.right);
         return sum;
     }
 }
