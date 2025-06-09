@@ -24,6 +24,27 @@ public class FinalPracticeTest {
         assertEquals(0, actual);
     }
 
+    @Test
+    void testSingleNode() {
+        ListNode list = new ListNode(5);
+        int actual = FinalPractice.oddIndexSum(list);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    void testTwoNode() {
+        ListNode list = new ListNode(5, new ListNode(10));
+        int actual = FinalPractice.oddIndexSum(list);
+        assertEquals(10, actual);
+    }
+
+    @Test
+    void testFourNode() {
+        ListNode list = new ListNode(5, new ListNode(10, new ListNode(15, new ListNode(20))));
+        int actual = FinalPractice.oddIndexSum(list);
+        assertEquals(30,actual);
+    }
+
     // TODO: Make thorough tests for ALL the questions on the study guide
     @Test
     void testForLargestLastThree() {
