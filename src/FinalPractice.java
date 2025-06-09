@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class FinalPractice {
     public static void main(String[] args) {
         // Feel free to call your methods here to experiment
@@ -139,4 +142,43 @@ public class FinalPractice {
         sum += oddSumBranch(node.right);
         return sum;
      }
+
+    /** 
+     * Given a reference to a head node in a linked list of integers, 
+     * return a Map<Integer, Integer> containing each value along with the number of times it shows up.
+     * 
+     * Example:
+     * Linked List:
+     * 4 -> 34 -> 4 -> 16 -> 4 -> 16 -> 29 -> 8 -> 8
+     *
+     * Expected Return Map (order is unimportant): 
+     * { 
+     *   4: 3,
+     *   8: 2,
+     *   16: 2,
+     *   29: 1,
+     *   34: 1
+     * }
+     * 
+     */
+    public static Map<Integer, Integer> linkedListToMap(ListNode head) {
+        // create map 
+        // while loop to run thru each node
+        // check if data exist in map if not add to map
+        Map<Integer, Integer> map = new HashMap<>();
+
+        ListNode current = head;
+        while (current != null) {
+            if (map.containsKey(current.data)) {
+                map.put(current.data, map.get(current.data) + 1);
+            } else {
+                map.put(current.data, 1);
+            }
+            current = current.next;
+        }
+        return map;
+    }
+
+
+
 }

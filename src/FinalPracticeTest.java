@@ -1,5 +1,8 @@
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.jupiter.api.Test;
 
 public class FinalPracticeTest {
@@ -237,4 +240,66 @@ public class FinalPracticeTest {
         int actual = FinalPractice.oddSumBranch(root);
         assertEquals(0, actual);
     }
+
+    // * Linked List:
+    // * 4 -> 34 -> 4 -> 16 -> 4 -> 16 -> 29 -> 8 -> 8
+    // * Expected Return Map (order is unimportant): 
+    // * { 
+    // *   4: 3,
+    // *   8: 2,
+    // *   16: 2,
+    // *   29: 1,
+    // *   34: 1
+    // * }
+    @Test
+    void testLinkedListToMap_mixedListNodes() {
+        ListNode list = new ListNode(4, new ListNode(34, new ListNode(4, new ListNode(16,
+        new ListNode(4, new ListNode(16, new ListNode(29, new ListNode(8, new ListNode(8)))))))));
+        Map<Integer, Integer> actual = FinalPractice.linkedListToMap(list);
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(4, 3);
+        map.put(8, 2);
+        map.put(16, 2);
+        map.put(29, 1);
+        map.put(34, 1);
+        assertEquals(map, actual);
+    }
+
+    @Test
+    void testLinkedListToMap_nullHead() {
+        ListNode list = null;
+        Map<Integer, Integer> actual = FinalPractice.linkedListToMap(list);
+        Map<Integer, Integer> map = new HashMap<>();
+        assertEquals(map, actual);
+    }
+
+    @Test
+    void testLinkedListToMap_allOnesListNodes() {
+        ListNode list = new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1,
+        new ListNode(1)))));
+        Map<Integer, Integer> actual = FinalPractice.linkedListToMap(list);
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(1, 5);
+        assertEquals(map, actual);
+    }
+
+    @Test
+    void testLinkedListToMap_mixedListNodes2() {
+        ListNode list = new ListNode(4, new ListNode(8, new ListNode(15, new ListNode(16, 
+        new ListNode(23, new ListNode(42, new ListNode(11, new ListNode(29, 
+        new ListNode(34)))))))));
+        Map<Integer, Integer> actual = FinalPractice.linkedListToMap(list);
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(4, 1);
+        map.put(8, 1);
+        map.put(15, 1);
+        map.put(16, 1);
+        map.put(23, 1);
+        map.put(42, 1);
+        map.put(11, 1);
+        map.put(29, 1);
+        map.put(34, 1);
+        assertEquals(map, actual);
+    }
+    
 }
