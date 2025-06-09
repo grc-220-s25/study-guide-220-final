@@ -3,8 +3,9 @@ public class FinalPractice {
         // Feel free to call your methods here to experiment
         // YOU MUST ALSO MAKE THOROUGH TESTS FOR EVERY METHOD 
 
-        // ListNode list = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4))));
-        // System.out.println(oddIndexSum(list));
+        ListNode list = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4))));
+        System.out.println(oddIndexSum(list));
+    }
 
     /**
      * Return the sum of the values at odd indexes in a linked list.
@@ -46,9 +47,7 @@ public class FinalPractice {
            return super.equals(obj);
        }
     
-   
-   
-       @Override0er99ds
+       @Override
        public String toString() {
            return super.toString();
        }
