@@ -79,7 +79,17 @@ public class FinalPractice {
     }
 
     public static int treeNodeEven(TreeNode node) {
-        return -1;
+        if(node == null) return 0;
+
+        int sum = 0;
+        if(node.left == null && node.right == null) {
+            if(node.data % 2 == 0) {
+                sum++;
+            }
+        }
+        sum += treeNodeEven(node.left);
+        sum += treeNodeEven(node.right);
+        return sum;
     }
 }
 
