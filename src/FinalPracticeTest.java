@@ -166,4 +166,75 @@ public class FinalPracticeTest {
         int actual = FinalPractice.evenSumLeaf(root);
         assertEquals(-2, actual);
     }
+
+    // *         15
+    // *       /    \
+    // *      9      4
+    // *     / \    /  \
+    // *    8   11 21   30
+    // *   / \        \
+    // *  2   6        23
+    @Test
+    void testOddSumBranch_mixedTree() {
+        TreeNode root = new TreeNode(15, 
+        new TreeNode(9, 
+            new TreeNode(8, new TreeNode(2), new TreeNode(6)), 
+            new TreeNode(11)), 
+        new TreeNode(4,
+            new TreeNode(21, null, new TreeNode(23)),
+            new TreeNode(30)));
+        int actual = FinalPractice.oddSumBranch(root);
+        assertEquals(45, actual);
+    }
+
+    @Test
+    void testOddSumBranch_nullRootTree() {
+        TreeNode root = null;
+        int actual = FinalPractice.oddSumBranch(root);
+        assertEquals(0, actual);
+    }
+
+    // * Tree:
+    // *             10
+    // *            /  \
+    // *          -4    6
+    // *         / \     \
+    // *        3   0     -2
+    // *             \
+    // *              7
+    // *
+    // * Mixed positive, negative, and zero (four levels)
+    // */
+    @Test
+    void testOddSumBranch_noOddBranchTree() {
+        TreeNode root = new TreeNode(10,
+        new TreeNode(-4,
+            new TreeNode(3),
+            new TreeNode(0, null, new TreeNode(7))),
+        new TreeNode(6, null, new TreeNode(-2)));
+        int actual = FinalPractice.oddSumBranch(root);
+        assertEquals(0, actual);
+    }
+
+    // * Tree:
+    //  *          -1
+    //  *          / \
+    //  *        -2  -3
+    //  *       /      \
+    //  *     -4       -5    
+    @Test
+    void testOddSumBranch_allNegativeOddBranchTree() {
+        TreeNode root = new TreeNode(-1,
+        new TreeNode(-2, new TreeNode(-4), null),
+        new TreeNode(-3, null, new TreeNode(-5)));
+        int actual = FinalPractice.oddSumBranch(root);
+        assertEquals(-4, actual);
+    }
+
+    @Test
+    void testOddSumBranch_onlyRootTree() {
+        TreeNode root = new TreeNode(5);
+        int actual = FinalPractice.oddSumBranch(root);
+        assertEquals(0, actual);
+    }
 }

@@ -99,4 +99,44 @@ public class FinalPractice {
         
         return sum;
     }
+
+    /**
+     * Given a reference to the root of a tree,
+     * return the sum of the branch nodes with odd values in the tree.
+     * Do not include any even or leaf nodes.
+     *
+     * If passed a null root, returns 0.
+     * 
+     * Example:
+     * Tree:
+     *         15
+     *       /    \
+     *      9      4
+     *     / \    /  \
+     *    8   11 21   30
+     *   / \        \
+     *  2   6        23
+     * 
+     * Expected Answer: 45
+     * The branch nodes are 15  9  4  8  21, and the odd ones are 15  9   21
+     * The sum of the odd branch nodes is 15+9+21=45
+     * 
+     * @param node the root of the tree
+     * @return the return the sum of the branch nodes with odd values in the tree.
+     */
+
+     public static int oddSumBranch(TreeNode node) {
+        // check if node is branch
+        // check if node data is odd
+        // sum all branche nodes
+        if (node == null) return 0;
+
+        int sum = 0;
+        if (node.left != null || node.right != null) {
+            if (node.data % 2 != 0) sum += node.data;
+        }
+        sum += oddSumBranch(node.left);
+        sum += oddSumBranch(node.right);
+        return sum;
+     }
 }
