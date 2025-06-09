@@ -10,7 +10,40 @@ public class FinalPracticeTest {
         assertEquals(95, actual);
     }
 
+
     // TODO: Make more tests for oddIndexSum
 
     // TODO: Make thorough tests for ALL the questions on the study guide
+
+// @Test
+// void testSomeOtherMethod_basicCase() {
+//     // Arrange (set up input)
+//     // Act (call the method)
+//     // Assert (check results)
+//}
+
+
+
+    @Test
+    void testOddIndexSum_evenLengthList() {
+        ListNode list = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4))));
+        assertEquals(6, FinalPractice.oddIndexSum(list));
+    }
+
+    @Test
+    void testOddIndexSum_singleElement() {
+        ListNode list = new ListNode(10);
+        assertEquals(0, FinalPractice.oddIndexSum(list));
+    }
+
+    @Test
+    void testOddIndexSum_twoElements() {
+        ListNode list = new ListNode(5, new ListNode(7));
+        assertEquals(7, FinalPractice.oddIndexSum(list));
+    }
+
+    @Test
+    void testOddIndexSum_emptyList() {
+        assertEquals(0, FinalPractice.oddIndexSum(null));
+    }
 }
