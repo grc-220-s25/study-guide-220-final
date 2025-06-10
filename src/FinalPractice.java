@@ -1,3 +1,7 @@
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+
 public class FinalPractice {
     public static void main(String[] args) {
         // Feel free to call your methods here to experiment
@@ -42,8 +46,7 @@ public class FinalPractice {
         int firstLast = 0;
         int secondLast = 0;
         int last = 0;
-        int fourthLast = 0;
-        
+
         int count = 0;
         while(current != null) {
             count++;
@@ -53,7 +56,7 @@ public class FinalPractice {
         current = head;
         int max = Integer.MIN_VALUE;
 
-        if(count < 4) {
+        if(count < 3) {
             while(current != null) {
             if(current.data > max) {
                 max = current.data;
@@ -68,13 +71,11 @@ public class FinalPractice {
 
             firstLast = secondLast;
             secondLast = last;
-            last = fourthLast;
-            fourthLast = current.data;
-
+            last = current.data;
             current = current.next;
         }
-       int maxOfFour = Math.max(Math.max(firstLast, secondLast), Math.max(last, fourthLast));
-       return maxOfFour;
+       int maxOfThree = Math.max(Math.max(firstLast, secondLast), last);
+       return maxOfThree;
      }
     }
 
@@ -104,6 +105,24 @@ public class FinalPractice {
         sum += branchNodeOdd(node.left);
         sum += branchNodeOdd(node.right);
         return sum;
+    }
+
+    public static Map<Integer, Integer> intMap(ListNode head) {
+
+        ListNode current = head;
+
+        Map<Integer, Integer> countMap = new HashMap<>();
+
+        while(current != null) {
+            int value = current.data;
+            if(countMap.containsKey(value)) {
+                countMap.put(value, countMap.get(value) + 1 );
+            } else {
+                countMap.put(value, 1);
+            }
+            current = current.next;
+        }
+            return countMap;
     }
 }
 
