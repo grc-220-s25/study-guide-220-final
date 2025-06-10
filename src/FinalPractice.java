@@ -109,6 +109,8 @@ public class FinalPractice {
 
     public static Map<Integer, Integer> intMap(ListNode head) {
 
+        if(head == null) return new HashMap<>();
+
         ListNode current = head;
 
         Map<Integer, Integer> countMap = new HashMap<>();

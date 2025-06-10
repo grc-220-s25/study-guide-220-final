@@ -22,8 +22,7 @@ public class FinalPracticeTest {
     }
     @Test
     void testEvenIndexSum_nullLengthList() {
-        ListNode list = new ListNode(0);
-        int actual = FinalPractice.oddIndexSum(list);
+        int actual = FinalPractice.oddIndexSum(null);
         assertEquals(0, actual);
     }
 
@@ -65,8 +64,7 @@ public class FinalPracticeTest {
 
     @Test
     void testForLastNodeNull() {
-        ListNode list = new ListNode(0);
-        int actual = FinalPractice.LargestOfLastThree(list);
+        int actual = FinalPractice.LargestOfLastThree(null);
         assertEquals(0, actual);
     }
     // --- test for treeNodeEven --- //
@@ -85,6 +83,8 @@ public class FinalPracticeTest {
             new TreeNode(5, new TreeNode(7), new TreeNode(9)));
             assertEquals(0, FinalPractice.treeNodeEven(root));
         }    
+
+    // --- test for hashmap --- //    
 
         @Test
         void testForHashMap() {
@@ -113,13 +113,9 @@ public class FinalPracticeTest {
 
         @Test
         void testForHashMap_null() {
-            ListNode head = new ListNode(0);
-
-
             Map<Integer, Integer> expected = new HashMap<>();
-            expected.put(0, 1);
 
-            Map<Integer, Integer> actual = FinalPractice.intMap(head);
+            Map<Integer, Integer> actual = FinalPractice.intMap(null);
 
             assertEquals(expected, actual);
         }
@@ -139,6 +135,21 @@ public class FinalPracticeTest {
             expected.put(16, 1);
             expected.put(20, 1);
 
+            Map<Integer, Integer> actual = FinalPractice.intMap(head);
+
+            assertEquals(expected, actual);
+        }
+        
+        @Test
+        void testForHashMap_AllDup() {
+            ListNode head = new ListNode(4);
+            head.next = new ListNode(4);
+            head.next.next = new ListNode(4);
+            head.next.next.next = new ListNode(4);
+            head.next.next.next.next = new ListNode(4);
+
+            Map<Integer, Integer> expected = new HashMap<>();
+            expected.put(4, 5);
             Map<Integer, Integer> actual = FinalPractice.intMap(head);
 
             assertEquals(expected, actual);
