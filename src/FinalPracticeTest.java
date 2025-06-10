@@ -56,17 +56,34 @@ public class FinalPracticeTest {
     }
 
     @Test
-    void testForLargestFourValues() {
-        ListNode list = new ListNode(4, new ListNode(8, new ListNode(15, new ListNode(16, new ListNode(23, new ListNode(55, new ListNode(22, new ListNode(29, new ListNode(34)))))))));
-        int actual = FinalPractice.LargestOfLastThree(list);
-        assertEquals(55, actual);
-    }
-
-    @Test
     void testForLastNodeNull() {
         int actual = FinalPractice.LargestOfLastThree(null);
         assertEquals(0, actual);
     }
+
+    @Test
+    void testForLargestLastThree_Dup() {
+        ListNode list = new ListNode(4, new ListNode(8, new ListNode(15, new ListNode(16, new ListNode(23, new ListNode(42, new ListNode(11, new ListNode(11, new ListNode(11)))))))));
+        int actual = FinalPractice.LargestOfLastThree(list);
+        assertEquals(11, actual);
+    }
+
+    @Test
+    void testForLargestLastThree_FewerThanThree() {
+        ListNode list = new ListNode(4, new ListNode(8));
+        int actual = FinalPractice.LargestOfLastThree(list);
+        assertEquals(8, actual);
+    }
+
+    @Test
+    void testForLargestLastThree_OneNode() {
+        ListNode list = new ListNode(4);
+        int actual = FinalPractice.LargestOfLastThree(list);
+        assertEquals(4, actual);
+    }
+
+    
+    
     // --- test for treeNodeEven --- //
     @Test
     public void testForLeafNodeEven() {
