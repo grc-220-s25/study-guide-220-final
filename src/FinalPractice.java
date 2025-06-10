@@ -25,19 +25,37 @@ public class FinalPractice {
 
         ListNode current = head;
         int sum = 0;
-        int position = 0;
+        int oddIndex = 0;
 
         while(current != null) {
-           if(position % 2 != 0) {
+           if(oddIndex % 2 != 0) {
             sum += current.data;
            }
             current = current.next;
-            position++;
+            oddIndex++;
         }
 
         return sum;
     }
-    // TODO: implement the rest of the study guide AND MAKE GOOD UNIT TESTS
+
+    public static int evenIndexSum(ListNode head) {
+
+        if(head == null) return 0;
+
+        ListNode current = head;
+        int sum = 0;
+        int evenIndex = 0;
+
+        while(current != null) {
+            if(evenIndex % 2 == 0) {
+                sum += current.data;
+            }
+            current = current.next;
+            evenIndex++;
+        }
+        return sum;
+    }
+    // TODO: implement the rest of the study guide AND MAKE GOOD UNIT TESTS 
     public static int LargestOfLastThree(ListNode head) {
         if(head == null) return 0;
 
