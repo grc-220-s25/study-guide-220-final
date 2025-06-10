@@ -60,43 +60,98 @@ public class FinalPracticeTest {
     @Test
     void testFindLargestOfLastThree_whenPositive() {
         ListNode list = new ListNode(4, new ListNode(8, new ListNode(15, new ListNode(16, new ListNode(23, new ListNode(42, new ListNode(11, new ListNode(29, new ListNode(34)))))))));
-        int actual = FinalPractice.findLargestofLastThree(list);
+        int actual = FinalPractice.findLargestOfLastThree(list);
         assertEquals(34, actual);
     }
     @Test
     void testFindLargestOfLastThree_whenNegative() {
         ListNode list = new ListNode(-4, new ListNode(-8, new ListNode(-15, new ListNode(-16, new ListNode(-23, new ListNode(-42, new ListNode(-11, new ListNode(-29, new ListNode(-34)))))))));
-        int actual = FinalPractice.findLargestofLastThree(list);
+        int actual = FinalPractice.findLargestOfLastThree(list);
         assertEquals(-11, actual);
     }
     @Test
     void testFindLargestOfLastThree_whenPostiveAndNegative() {
         ListNode list = new ListNode(4, new ListNode(-8, new ListNode(15, new ListNode(-16, new ListNode(23, new ListNode(-42, new ListNode(11, new ListNode(-29, new ListNode(34)))))))));
-        int actual = FinalPractice.findLargestofLastThree(list);
+        int actual = FinalPractice.findLargestOfLastThree(list);
         assertEquals(34, actual);
     }
     @Test
     void testFindLargestOfLastThree_isNull() {
         ListNode list = null;
-        int actual = FinalPractice.findLargestofLastThree(list);
+        int actual = FinalPractice.findLargestOfLastThree(list);
         assertEquals(0, actual);    
     }
     @Test
     void testFindLargestOfLastThree_onlyOneNode() {
         ListNode list = new ListNode(100);
-        int actual = FinalPractice.findLargestofLastThree(list);
+        int actual = FinalPractice.findLargestOfLastThree(list);
         assertEquals(0, actual);
     }
     @Test
     void testFindLargestOfLastThree_onlyTwoNodes() {
         ListNode list = new ListNode(4, new ListNode(8));
-        int actual = FinalPractice.findLargestofLastThree(list);
+        int actual = FinalPractice.findLargestOfLastThree(list);
         assertEquals(0, actual);
     }
     @Test
     void testFindLargestOfLastThree_onlyThreeNodes() {
         ListNode list = new ListNode(4, new ListNode(-99, new ListNode(99)));
-        int actual = FinalPractice.findLargestofLastThree(list);
+        int actual = FinalPractice.findLargestOfLastThree(list);
         assertEquals(99, actual);
+    }
+    
+// SumEvenLeafNodes
+
+    @Test
+    void testSumEvenLeafNodes_singleLeafNodePerBranch() {
+        TreeNode root = new TreeNode(10);
+        root.left = new TreeNode(3);
+        root.right = new TreeNode(12);
+        root.left.left = new TreeNode(4);
+        root.right.right = new TreeNode(8);
+        assertEquals(12, FinalPractice.sumEvenLeafNodes(root));
+    }
+    @Test
+    void testSumEvenLeafNodes_pairOfLeafNodesPerBranch() {
+        TreeNode root = new TreeNode(10);
+        root.left = new TreeNode(3);
+        root.right = new TreeNode(12);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(7);
+        root.right.left = new TreeNode(6);
+        root.right.right = new TreeNode(9);
+        assertEquals(10, FinalPractice.sumEvenLeafNodes(root));
+    }
+    @Test
+    void testSumEvenLeafNodes_onlyOddLeaves() {
+        TreeNode root = new TreeNode(9);
+        root.left = new TreeNode(13);
+        root.right = new TreeNode(11);
+        root.left.left = new TreeNode(3);
+        root.left.right = new TreeNode(7);
+        root.right.left = new TreeNode(5);
+        root.right.right = new TreeNode(9);
+        assertEquals(0, FinalPractice.sumEvenLeafNodes(root));
+    }
+    @Test
+    void testSumEvenLeafNodes_onlyEvenLeaves() {
+        TreeNode root = new TreeNode(8);
+        root.left = new TreeNode(12);
+        root.right = new TreeNode(10);
+        root.left.left = new TreeNode(2);
+        root.left.right = new TreeNode(6);
+        root.right.left = new TreeNode(4);
+        root.right.right = new TreeNode(16);
+        assertEquals(28, FinalPractice.sumEvenLeafNodes(root));
+    }
+    @Test
+    void testSumEvenLeafNodes_whenOnlyRoot() {
+        TreeNode root = new TreeNode(10);
+        assertEquals(10, FinalPractice.sumEvenLeafNodes(root));
+    }
+    @Test
+    void testSumEvenLeafNodes_whenNull() {
+        TreeNode root = null;
+        assertEquals(0, FinalPractice.sumEvenLeafNodes(root));
     }
 }

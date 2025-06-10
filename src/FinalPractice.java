@@ -33,7 +33,7 @@ public class FinalPractice {
         return sum;
     }
 
-    public static int findLargestofLastThree(ListNode head) {
+    public static int findLargestOfLastThree(ListNode head) {
         if (head == null) return 0;
 
         ListNode slow = head;
@@ -61,5 +61,18 @@ public class FinalPractice {
 
         return Math.max(third, Math.max(first, second));
         }
-}
+        
+    public static int sumEvenLeafNodes(TreeNode node) {
+        if (node == null) return 0;
+
+        if (node.left == null && node.right == null) {
+            if (node.data % 2 == 0) {
+                return node.data;
+            }
+            return 0;
+        }
+        return sumEvenLeafNodes(node.left) + sumEvenLeafNodes(node.right);
+        }
+    } 
+
 
