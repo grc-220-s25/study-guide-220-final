@@ -1,5 +1,9 @@
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+
 import org.junit.jupiter.api.Test;
 
 public class FinalPracticeTest {
@@ -10,7 +14,6 @@ public class FinalPracticeTest {
         assertEquals(95, actual);
     }
 
-    // TODO: Make more tests for oddIndexSum
     @Test
     void testOddIndexSum_evenLengthList() {
         ListNode list = new ListNode(2, new ListNode(4, new ListNode(6, new ListNode(8, new ListNode(10, new ListNode(12, new ListNode(14, new ListNode(16, new ListNode(18)))))))));
@@ -44,7 +47,7 @@ public class FinalPracticeTest {
         int actual = FinalPractice.oddIndexSum(list);
         assertEquals(30,actual);
     }
-
+       // --- Test for LargestOfLastThree --- //
     // TODO: Make thorough tests for ALL the questions on the study guide
     @Test
     void testForLargestLastThree() {
@@ -59,6 +62,14 @@ public class FinalPracticeTest {
         int actual = FinalPractice.LargestOfLastThree(list);
         assertEquals(55, actual);
     }
+
+    @Test
+    void testForLastNodeNull() {
+        ListNode list = new ListNode(0);
+        int actual = FinalPractice.LargestOfLastThree(list);
+        assertEquals(0, actual);
+    }
+    // --- test for treeNodeEven --- //
     @Test
     public void testForLeafNodeEven() {
         TreeNode root = new TreeNode(2,
@@ -66,6 +77,73 @@ public class FinalPracticeTest {
             new TreeNode(6, new TreeNode(8), null));
             assertEquals(12, FinalPractice.treeNodeEven(root));
         }
+        
+        @Test
+    public void testForLeafNodeOdd() {
+        TreeNode root = new TreeNode(1,
+            new TreeNode(3),
+            new TreeNode(5, new TreeNode(7), new TreeNode(9)));
+            assertEquals(0, FinalPractice.treeNodeEven(root));
+        }    
+
+        @Test
+        void testForHashMap() {
+            ListNode head = new ListNode(4);
+            head.next = new ListNode(34);
+            head.next.next = new ListNode(4);
+            head.next.next.next = new ListNode(16);
+            head.next.next.next.next = new ListNode(4);
+            head.next.next.next.next.next = new ListNode(16);
+            head.next.next.next.next.next.next = new ListNode(29);
+            head.next.next.next.next.next.next.next = new ListNode(8);
+            head.next.next.next.next.next.next.next.next = new ListNode(8);
+
+
+            Map<Integer, Integer> expected = new HashMap<>();
+            expected.put(4, 3);
+            expected.put(34, 1);
+            expected.put(16,2);
+            expected.put(8,2);
+            expected.put(29,1);
+
+            Map<Integer, Integer> actual = FinalPractice.intMap(head);
+
+            assertEquals(expected, actual);
+        }
+
+        @Test
+        void testForHashMap_null() {
+            ListNode head = new ListNode(0);
+
+
+            Map<Integer, Integer> expected = new HashMap<>();
+            expected.put(0, 1);
+
+            Map<Integer, Integer> actual = FinalPractice.intMap(head);
+
+            assertEquals(expected, actual);
+        }
+        
+        @Test
+        void testForHashMap_AllUnique() {
+            ListNode head = new ListNode(4);
+            head.next = new ListNode(8);
+            head.next.next = new ListNode(12);
+            head.next.next.next = new ListNode(16);
+            head.next.next.next.next = new ListNode(20);
+
+            Map<Integer, Integer> expected = new HashMap<>();
+            expected.put(4, 1);
+            expected.put(8, 1);
+            expected.put(12, 1);
+            expected.put(16, 1);
+            expected.put(20, 1);
+
+            Map<Integer, Integer> actual = FinalPractice.intMap(head);
+
+            assertEquals(expected, actual);
+        }
+        
     }
         
-
+ 
