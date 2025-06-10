@@ -26,4 +26,23 @@ public class FinalPracticeTest {
     }
 
     // TODO: Make thorough tests for ALL the questions on the study guide
+    @Test
+    void testMaxOfLast3_typicalList() {
+        ListNode list = new ListNode(7, new ListNode(3, new ListNode(19, new ListNode(21, new ListNode(14, new ListNode(33, new ListNode(8, new ListNode(26, new ListNode(11, new ListNode(5))))))))));
+        int actual = FinalPractice.maxOfLast3(list);
+        assertEquals(26, actual);
+    }
+
+    @Test
+    void testMaxOfLast3_withNegatives() {
+        ListNode list = new ListNode(-10, new ListNode(-20, new ListNode(-5, new ListNode(-30, new ListNode(-1)))));
+        int actual = FinalPractice.maxOfLast3(list);
+        assertEquals(-1, actual);
+    }
+
+    @Test
+    void testMaxOfLast3_tooShort() {
+        ListNode list = new ListNode(7, new ListNode(2));
+        assertThrows(IllegalArgumentException.class, () -> FinalPractice.maxOfLast3(list));
+    }
 }

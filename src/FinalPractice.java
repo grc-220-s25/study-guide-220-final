@@ -33,4 +33,25 @@ public class FinalPractice {
     }
 
     // TODO: implement the rest of the study guide AND MAKE GOOD UNIT TESTS
+    public static int maxOfLast3(ListNode head) {
+        if (head == null) {
+            throw new IllegalArgumentException("List must have at least 3 nodes");
+        }
+
+        ListNode first = head;
+        ListNode second = head.next;
+        ListNode third = (second != null) ? second.next : null;
+
+        while (third != null && third.next != null) {
+            first = first.next;
+            second = second.next;
+            third = third.next;
+        }
+
+        if (third == null) {
+            throw new IllegalArgumentException("List must have at least 3 nodes");
+        }
+
+        return Math.max(first.data, Math.max(second.data, third.data));
+    }
 }
