@@ -87,19 +87,25 @@ public class FinalPractice {
       */
      public static int largestOfLastThree(ListNode head){
         if (head == null) return 0;
+        if (head.next == null || head.next == null || head.next.next == null) {
+            return head.data;
+        }
         int first = Integer.MIN_VALUE;
         int second = Integer.MIN_VALUE;
         int third = Integer.MIN_VALUE;
-        int counter = 0;
+        
+        int maxOfthree = 0;
         while (head != null && head.next != null && head.next.next != null) {
             first = head.data;
             second = head.next.data;
             third = head.next.next.data;
-            counter++;
             head = head.next;
         }
+        maxOfthree = Math.max(first, Math.max(second, third));
+        
+        
 
-        return counter;
+        return maxOfthree;
 
         /*
          First we check if its null and if so return 0;
