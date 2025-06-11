@@ -58,4 +58,17 @@ public class FinalPractice {
         return Math.max(first.data, Math.max(second.data, third.data));
     }
 
+    public static int sumEvenLeaves(TreeNode node) {
+    if (node == null) {
+        return 0;
+    }
+
+    if (node.left == null && node.right == null) {
+        return (node.data % 2 == 0) ? node.data : 0;
+    }
+
+    return sumEvenLeaves(node.left) + sumEvenLeaves(node.right);
+}
+
+
 }
