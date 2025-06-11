@@ -94,9 +94,34 @@ public class FinalPractice {
         }
        int maxOfThree = Math.max(Math.max(firstLast, secondLast), last);
        return maxOfThree;
-     }
+        }
     }
 
+    public static int LargestlastFour(ListNode head) {
+        if(head == null) return 0;
+
+        int lastFirst = 0;
+        int lastSecond = 0;
+        int lastThird = 0;
+        int lastFour = 0;
+
+        ListNode current = head;
+
+        while(current != null) {
+
+            lastFirst = lastSecond;
+            lastSecond = lastThird;
+            lastThird = lastFour;
+            lastFour = current.data;
+
+            current = current.next;
+
+            }
+            int maxFour = Math.max(Math.max(lastFirst, lastSecond), Math.max(lastThird, lastFour));
+            return maxFour;
+        }
+        
+        
     public static int treeNodeEven(TreeNode node) {
         if(node == null) return 0;
 

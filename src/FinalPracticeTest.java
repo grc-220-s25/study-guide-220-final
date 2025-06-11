@@ -46,7 +46,7 @@ public class FinalPracticeTest {
         int actual = FinalPractice.oddIndexSum(list);
         assertEquals(30,actual);
     }
-       // --- Test for LargestOfLastThree --- //
+       /* Test for LargestLastThree */
     // TODO: Make thorough tests for ALL the questions on the study guide
     @Test
     void testForLargestLastThree() {
@@ -84,7 +84,7 @@ public class FinalPracticeTest {
 
     
     
-    // --- test for treeNodeEven --- //
+    /* Test for LeafNodeEven */
     @Test
     public void testForLeafNodeEven() {
         TreeNode root = new TreeNode(2,
@@ -101,7 +101,7 @@ public class FinalPracticeTest {
             assertEquals(0, FinalPractice.treeNodeEven(root));
         }    
 
-    // --- test for hashmap --- //    
+    /* Test for HashMaps */
 
         @Test
         void testForHashMap() {
@@ -172,13 +172,54 @@ public class FinalPracticeTest {
             assertEquals(expected, actual);
         }
 
+        /* Test for evenIndexSum */
         @Test
         void testEvenIndexSum_evenList() {
             ListNode list = new ListNode(4, new ListNode(8, new ListNode(15, new ListNode(16, new ListNode(23, new ListNode(42, new ListNode(11, new ListNode(29, new ListNode(34)))))))));
             int actual = FinalPractice.evenIndexSum(list);
             assertEquals(87, actual);
         }
+
+        @Test
+        void testEvenIndexSum_Null() {
+            int actual = FinalPractice.evenIndexSum(null);
+            assertEquals(0, actual);
+        }
+
+        @Test
+        void testEvenIndexSum_AllDup() {
+            ListNode list = new ListNode(4, new ListNode(4, new ListNode(4, new ListNode(4, new ListNode(4, new ListNode(4, new ListNode(4, new ListNode(4, new ListNode(4)))))))));
+            int actual = FinalPractice.evenIndexSum(list);
+            assertEquals(20, actual);
+        }
+
+        @Test
+        void testEvenIndexSum_oddList() {
+            ListNode list = new ListNode(4, new ListNode(8, new ListNode(15, new ListNode(16, new ListNode(23)))));
+            int actual = FinalPractice.evenIndexSum(list);
+            assertEquals(42, actual);
+        }
+        /* Test for LargestLastFour */
+
+        @Test
+        void testForLargestLastFour() {
+            ListNode list = new ListNode(4, new ListNode(8, new ListNode(15, new ListNode(16, new ListNode(23, new ListNode(42, new ListNode(11, new ListNode(12, new ListNode(34)))))))));
+            int actual = FinalPractice.LargestlastFour(list);
+            assertEquals(42, actual);
+        }
         
+        @Test
+        void testForLargestLastFour_FourNodes() {
+            ListNode list = new ListNode(4, new ListNode(8, new ListNode(15, new ListNode(16))));
+            int actual = FinalPractice.LargestOfLastThree(list);
+            assertEquals(16, actual);
+        }
+
+        @Test
+        void testForLargestLastFour_Null() {
+            int actual = FinalPractice.LargestOfLastThree(null);
+            assertEquals(0, actual);
+        }
     }
         
  
