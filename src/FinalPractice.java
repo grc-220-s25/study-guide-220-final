@@ -1,7 +1,23 @@
 public class FinalPractice {
     public static void main(String[] args) {
         // Feel free to call your methods here to experiment
-
+        TreeNode tree = new TreeNode(1,
+        new TreeNode(1,
+        new TreeNode(2, null,null),
+        new TreeNode(1, null,null)),
+        //right
+        new TreeNode(1,
+        new TreeNode(1, null, null),
+        new TreeNode(2, null, null)));
+        int evenLeafSum = 0;
+        if (tree.left == null && tree.right == null && tree.data % 2 == 0)  {
+            System.out.println("Leaf found: " + tree.data);
+            evenLeafSum += tree.data;
+        }
+        evenLeafSum += sumOfLeafevenLeafNodes(tree.left);
+        evenLeafSum += sumOfLeafevenLeafNodes(tree.right);
+        System.out.println(evenLeafSum);
+        
         // YOU MUST ALSO MAKE THOROUGH TESTS FOR EVERY METHOD 
     }
 
@@ -120,6 +136,39 @@ public class FinalPractice {
 
      */
     public static int sumOfLeafevenLeafNodes(TreeNode head){
-        return 0;
+        /*
+         if head is null return 0
+
+         create a variable to store the sum of evenLeafNodes
+
+         recurse through using sumOfLeafevenLeafNodes();
+          if the node on the left and right == null and node.data % 2 == 0
+          sum that node.data
+             0
+            / \
+           1   2
+
+                      1
+                    /   \
+                  1       1
+                 / \     / \
+                2   1   1   2
+------------------------------------
+
+                   1
+                  /
+                12
+
+         */
+        if (head == null) return 0;
+        int evenLeafSum = 0;
+        if (head.left == null && head.right == null && head.data % 2 == 0)  {
+            System.out.println("Leaf found: " + head.data);
+            evenLeafSum += head.data;
+        }
+        evenLeafSum += sumOfLeafevenLeafNodes(head.left);
+        evenLeafSum += sumOfLeafevenLeafNodes(head.right);
+        
+        return evenLeafSum;
     }
 }   
