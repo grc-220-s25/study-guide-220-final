@@ -11,6 +11,7 @@ public class FinalPracticeTest {
     void testOddIndexSum_oddLengthList() {
         ListNode list = new ListNode(4, new ListNode(8, new ListNode(15, new ListNode(16, new ListNode(23, new ListNode(42, new ListNode(11, new ListNode(29, new ListNode(34)))))))));
         int actual = FinalPractice.oddIndexSum(list);
+        int expected = 95;
         assertEquals(95, actual);
     }
 
@@ -18,11 +19,13 @@ public class FinalPracticeTest {
     void testOddIndexSum_evenLengthList() {
         ListNode list = new ListNode(2, new ListNode(4, new ListNode(6, new ListNode(8, new ListNode(10, new ListNode(12, new ListNode(14, new ListNode(16, new ListNode(18)))))))));
         int actual = FinalPractice.oddIndexSum(list);
+        int expected = 40;
         assertEquals(40, actual);
     }
     @Test
     void testEvenIndexSum_nullLengthList() {
         int actual = FinalPractice.oddIndexSum(null);
+        int expected = 0;
         assertEquals(0, actual);
     }
 
@@ -30,6 +33,7 @@ public class FinalPracticeTest {
     void testSingleNode() {
         ListNode list = new ListNode(5);
         int actual = FinalPractice.oddIndexSum(list);
+        int expected = 0;
         assertEquals(0, actual);
     }
 
@@ -37,6 +41,7 @@ public class FinalPracticeTest {
     void testTwoNode() {
         ListNode list = new ListNode(5, new ListNode(10));
         int actual = FinalPractice.oddIndexSum(list);
+        int expected = 10;
         assertEquals(10, actual);
     }
 
@@ -44,6 +49,7 @@ public class FinalPracticeTest {
     void testFourNode() {
         ListNode list = new ListNode(5, new ListNode(10, new ListNode(15, new ListNode(20))));
         int actual = FinalPractice.oddIndexSum(list);
+        int expected = 30;
         assertEquals(30,actual);
     }
        /* Test for LargestLastThree */
@@ -51,12 +57,14 @@ public class FinalPracticeTest {
     void testForLargestLastThree() {
         ListNode list = new ListNode(7, new ListNode(3, new ListNode(19, new ListNode(21, new ListNode(14, new ListNode(33, new ListNode(8, new ListNode(26, new ListNode(11, new ListNode(5))))))))));
         int actual = FinalPractice.LargestOfLastThree(list);
+        int expected = 26;
         assertEquals(26, actual);
     }
 
     @Test
     void testForLastNodeNull() {
         int actual = FinalPractice.LargestOfLastThree(null);
+        int expected = 0;
         assertEquals(0, actual);
     }
 
@@ -64,6 +72,7 @@ public class FinalPracticeTest {
     void testForLargestLastThree_Dup() {
         ListNode list = new ListNode(4, new ListNode(8, new ListNode(15, new ListNode(16, new ListNode(23, new ListNode(42, new ListNode(11, new ListNode(11, new ListNode(11)))))))));
         int actual = FinalPractice.LargestOfLastThree(list);
+        int expected = 11;
         assertEquals(11, actual);
     }
 
@@ -71,6 +80,7 @@ public class FinalPracticeTest {
     void testForLargestLastThree_OneNode() {
         ListNode list = new ListNode(4);
         int actual = FinalPractice.LargestOfLastThree(list);
+        int expected = 4;
         assertEquals(4, actual);
     }
 
@@ -78,7 +88,8 @@ public class FinalPracticeTest {
     void testForLargestLastThree_TwoNode() {
         ListNode list = new ListNode(4, new ListNode(6));
         int actual = FinalPractice.LargestOfLastThree(list);
-        assertEquals(6, actual);
+        int expected = 6;
+        assertEquals(expected, actual);
     }
 
     
@@ -86,17 +97,17 @@ public class FinalPracticeTest {
     /* Test for LeafNodeEven */
     @Test
     public void testForLeafNodeEven() {
-        TreeNode root = new TreeNode(12,
-            new TreeNode(6,
-                new TreeNode(4,
-                    new TreeNode(3),
+        TreeNode root = new TreeNode(12, // root
+            new TreeNode(6, // left child of root
+                new TreeNode(4, // left child of 6
+                    new TreeNode(3), // left child of 4
                     null),
-                new TreeNode(8)),
-            new TreeNode(18,
-                new TreeNode(16),
-                new TreeNode(20,
-                    null,
-                    new TreeNode(22)))
+                new TreeNode(8)), // right child of 6
+            new TreeNode(18, // right child of root 
+                new TreeNode(16), // left child of 18
+                new TreeNode(20, // right child of 18
+                    null, // left child of 16
+                    new TreeNode(22))) // right child of 20
         );
         int actual = FinalPractice.treeNodeEven(root);
         int expected = 46;
@@ -105,7 +116,8 @@ public class FinalPracticeTest {
         
     @Test
     public void testForLeafNodeNull() {
-        assertEquals(0, FinalPractice.treeNodeEven(null));
+        int expected = 0;
+        assertEquals(expected, FinalPractice.treeNodeEven(null));
         }
     
     @Test
@@ -132,7 +144,7 @@ public class FinalPracticeTest {
         );
         int actual = FinalPractice.treeNodeEven(root);
         int expected = 48;
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
    }
     
 
@@ -155,10 +167,10 @@ public class FinalPracticeTest {
 
             Map<Integer, Integer> expected = new HashMap<>();
             expected.put(4, 3);
-            expected.put(34, 1);
+            expected.put(8, 2);
             expected.put(16,2);
-            expected.put(8,2);
             expected.put(29,1);
+            expected.put(34,1);
 
             Map<Integer, Integer> actual = FinalPractice.intMap(head);
 
@@ -214,12 +226,14 @@ public class FinalPracticeTest {
         void testEvenIndexSum_evenList() {
             ListNode list = new ListNode(4, new ListNode(8, new ListNode(15, new ListNode(16, new ListNode(23, new ListNode(42, new ListNode(11, new ListNode(29, new ListNode(34)))))))));
             int actual = FinalPractice.evenIndexSum(list);
+            int expected = 87;
             assertEquals(87, actual);
         }
 
         @Test
         void testEvenIndexSum_Null() {
             int actual = FinalPractice.evenIndexSum(null);
+            int expected = 0;
             assertEquals(0, actual);
         }
 
@@ -227,6 +241,7 @@ public class FinalPracticeTest {
         void testEvenIndexSum_AllDup() {
             ListNode list = new ListNode(4, new ListNode(4, new ListNode(4, new ListNode(4, new ListNode(4, new ListNode(4, new ListNode(4, new ListNode(4, new ListNode(4)))))))));
             int actual = FinalPractice.evenIndexSum(list);
+            int expected = 20;
             assertEquals(20, actual);
         }
 
@@ -234,6 +249,7 @@ public class FinalPracticeTest {
         void testEvenIndexSum_oddList() {
             ListNode list = new ListNode(4, new ListNode(8, new ListNode(15, new ListNode(16, new ListNode(23)))));
             int actual = FinalPractice.evenIndexSum(list);
+            int expected = 42;
             assertEquals(42, actual);
         }
         /* Test for LargestLastFour */
@@ -242,6 +258,7 @@ public class FinalPracticeTest {
         void testForLargestLastFour() {
             ListNode list = new ListNode(4, new ListNode(8, new ListNode(15, new ListNode(16, new ListNode(23, new ListNode(42, new ListNode(11, new ListNode(12, new ListNode(34)))))))));
             int actual = FinalPractice.LargestlastFour(list);
+            int expected = 42;
             assertEquals(42, actual);
         }
         
@@ -249,13 +266,15 @@ public class FinalPracticeTest {
         void testForLargestLastFour_FourNodes() {
             ListNode list = new ListNode(4, new ListNode(8, new ListNode(15, new ListNode(16))));
             int actual = FinalPractice.LargestOfLastThree(list);
-            assertEquals(16, actual);
+            int expected = 16;
+            assertEquals(expected, actual);
         }
 
         @Test
         void testForLargestLastFour_Null() {
             int actual = FinalPractice.LargestOfLastThree(null);
-            assertEquals(0, actual);
+            int expected = 0;
+            assertEquals(expected, actual);
         }
 
         /* Test for branchNodeOdd */
@@ -321,5 +340,5 @@ public class FinalPracticeTest {
         assertEquals(expected, result);
     }
 }
-        
+         
  

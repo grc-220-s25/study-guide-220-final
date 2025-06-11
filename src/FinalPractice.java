@@ -55,7 +55,7 @@ public class FinalPractice {
         }
         return sum;
     }
-    // TODO: implement the rest of the study guide AND MAKE GOOD UNIT TESTS 
+    
     public static int LargestOfLastThree(ListNode head) {
         if(head == null) return 0;
 
@@ -102,29 +102,29 @@ public class FinalPractice {
         }
         
         
-    public static int treeNodeEven(TreeNode node) {
-        if(node == null) return 0;
+    public static int treeNodeEven(TreeNode root) {
+        if(root == null) return 0;
 
         int sum = 0;
-        if(node.left == null && node.right == null) {
-            if(node.data % 2 == 0) {
-                sum += node.data;
+        if(root.left == null && root.right == null) {
+            if(root.data % 2 == 0) {
+                sum += root.data;
             }
         }
-        sum += treeNodeEven(node.left);
-        sum += treeNodeEven(node.right);
+        sum += treeNodeEven(root.left);
+        sum += treeNodeEven(root.right);
         return sum;
     }
 
-    public static int branchNodeOdd(TreeNode node) {
-        if(node == null) return 0;
+    public static int branchNodeOdd(TreeNode root) {
+        if(root == null) return 0;
 
         int sum = 0;
-        if((node.left != null || node.right != null) && node.data % 2 != 0) {
-                sum += node.data;
+        if((root.left != null || root.right != null) && root.data % 2 != 0) {
+                sum += root.data;
             }
-            sum += branchNodeOdd(node.left);
-            sum += branchNodeOdd(node.right);
+            sum += branchNodeOdd(root.left);
+            sum += branchNodeOdd(root.right);
             return sum;
     
         }
