@@ -10,13 +10,13 @@ public class FinalPractice {
     }
 
     /**
-     * Return the sum of the values at odd indexes in a linked list.
+     * Return the sum of the values at odd indexes in a linked-list.
      * 
      * Assumes head is at index 0.
      * 
      * If passed a null head, returns 0.
      * 
-     * @param head the head of the linked list
+     * @param head the head of the linked-list
      * @return the sum of the values at odd indexes
      */
     public static int oddIndexSum(ListNode head) {
@@ -36,6 +36,14 @@ public class FinalPractice {
         return sum;
     }
 
+    /**
+     * Return the largest of only the last 3 values of the linked-list.
+     * 
+     * If passed a null head, returns 0.
+     * 
+     * @param head the head of the linked-list
+     * @return the largest value of the last three ListNodes.
+     */
     public static int findLargestOfLastThree(ListNode head) {
         if (head == null) return 0;
 
@@ -64,7 +72,15 @@ public class FinalPractice {
 
         return Math.max(third, Math.max(first, second));
         }
-        
+
+    /**
+     * Return the sum of the leaf nodes with even values in the tree.
+     * 
+     * If passed a null node, returns 0.
+     * 
+     * @param node the root TreeNode of a tree.
+     * @return the sum of even leaf nodes.
+     */        
     public static int sumEvenLeafNodes(TreeNode node) {
         if (node == null) return 0;
 
@@ -76,7 +92,15 @@ public class FinalPractice {
         }
         return sumEvenLeafNodes(node.left) + sumEvenLeafNodes(node.right);
         }
-    
+
+    /**
+     * Return the sum of the branch nodes with odd values in the tree.
+     * 
+     * If passed a null node, returns 0.
+     * 
+     * @param node the root TreeNode of a tree.
+     * @return the sum of odd branch nodes.
+     */      
     public static int sumOddBranchNodes(TreeNode node) {
         if (node == null) return 0;
         
@@ -87,7 +111,15 @@ public class FinalPractice {
         }
         return sumOddBranchNodes(node.left) + sumOddBranchNodes(node.right);
     }
-    
+
+    /**
+     * Return a Map<Integer, Integer> containing each value along with the number of times it shows up.
+     * 
+     * If passed a null head, returns a new HashMap.
+     * 
+     * @param head the head of the linked-list
+     * @return the map that shows a frequency for each value.
+     */
     public static Map<Integer, Integer> frequencyMap(ListNode head) {
         ListNode curr = head;
         if (curr == null) return new HashMap<>();
