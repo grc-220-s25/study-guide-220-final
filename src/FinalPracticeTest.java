@@ -243,5 +243,61 @@ public class FinalPracticeTest {
         TreeNode root = null;
         assertEquals(0, FinalPractice.sumOddBranchNodes(root));
     }
-}
+
+    // frequencyMap
+
+    @Test
+    void testFrequencyMap_whenPositive() {
+        ListNode list = new ListNode(3, new ListNode(7, new ListNode(15, new ListNode(5, new ListNode(23, new ListNode(41, new ListNode(7)))))));
+
+        Map<Integer, Integer> frequencyMap = FinalPractice.frequencyMap(list);
+
+        assertEquals(1, (int) frequencyMap.get(3));  // 3 appears once
+        assertEquals(2, (int) frequencyMap.get(7));  // 7 appears twice
+        assertEquals(1, (int) frequencyMap.get(15)); // 15 appears once
+        assertEquals(1, (int) frequencyMap.get(5));  // 5 appears once
+        assertEquals(1, (int) frequencyMap.get(23)); // 23 appears once
+        assertEquals(1, (int) frequencyMap.get(41)); // 41 appears once
+    }
+    @Test
+    void testFrequencyMap_whenNegative() {
+        ListNode list = new ListNode(-3, new ListNode(-7, new ListNode(-15, new ListNode(-5, new ListNode(-23, new ListNode(-41, new ListNode(-7)))))));
+
+        Map<Integer, Integer> frequencyMap = FinalPractice.frequencyMap(list);
+
+        assertEquals(1, (int) frequencyMap.get(-3));  
+        assertEquals(2, (int) frequencyMap.get(-7)); 
+        assertEquals(1, (int) frequencyMap.get(-15));
+        assertEquals(1, (int) frequencyMap.get(-5));
+        assertEquals(1, (int) frequencyMap.get(-23));
+        assertEquals(1, (int) frequencyMap.get(-41));
+    }
+    @Test
+    void testFrequencyMap_whenThreeNodes() {
+        ListNode list = new ListNode(1, new ListNode(1, new ListNode(1)));
+
+
+        Map<Integer, Integer> frequencyMap = FinalPractice.frequencyMap(list);
+
+        assertEquals(3, (int) frequencyMap.get(1));
+    }
+
+    @Test
+    void testFrequencyMap_whenSingleNode() {
+        ListNode list = new ListNode(3);
+
+        Map<Integer, Integer> frequencyMap = FinalPractice.frequencyMap(list);
+
+        assertEquals(1, (int) frequencyMap.get(3));
+    }
+    @Test
+    void testFrequencyMap_whenNull() {
+        ListNode list = null;
+
+        Map<Integer, Integer> frequencyMap = FinalPractice.frequencyMap(list);
+
+        assertTrue(frequencyMap.isEmpty());
+    }
+}    
+
 

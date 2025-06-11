@@ -1,4 +1,7 @@
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class FinalPractice {
     public static void main(String[] args) {
         // Feel free to call your methods here to experiment
@@ -83,6 +86,24 @@ public class FinalPractice {
             }
         }
         return sumOddBranchNodes(node.left) + sumOddBranchNodes(node.right);
+    }
+    
+    public static Map<Integer, Integer> frequencyMap(ListNode head) {
+        ListNode curr = head;
+        if (curr == null) return new HashMap<>();
+
+        Map<Integer, Integer> freqMap = new HashMap<>();
+
+        while (curr != null) {
+            Integer count = freqMap.get(curr.data);
+            if (count == null) {
+                freqMap.put(curr.data, 1);
+            } else {
+                freqMap.put(curr.data, count + 1);
+        }
+            curr = curr.next;
+        }   
+        return freqMap;
     }
 } 
 
