@@ -70,7 +70,7 @@ public class FinalPractice {
             firstLast = secondLast;
             secondLast = last;
             last = current.data;
-            
+
             current = current.next;
         }
         int maxOfThree = Math.max(Math.max(firstLast, secondLast), last);
@@ -120,16 +120,15 @@ public class FinalPractice {
         if(node == null) return 0;
 
         int sum = 0;
-        if(node.left != null && node.right != null) {
-            if(node.data % 2 != 0) {
+        if((node.left != null || node.right != null) && node.data % 2 != 0) {
                 sum += node.data;
             }
+            sum += branchNodeOdd(node.left);
+            sum += branchNodeOdd(node.right);
+            return sum;
+    
         }
-        sum += branchNodeOdd(node.left);
-        sum += branchNodeOdd(node.right);
-        return sum;
-    }
-
+        
     public static Map<Integer, Integer> intMap(ListNode head) {
 
         if(head == null) return new HashMap<>();
@@ -150,4 +149,5 @@ public class FinalPractice {
             return countMap;
     }
 }
+
 

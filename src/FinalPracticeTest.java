@@ -257,6 +257,69 @@ public class FinalPracticeTest {
             int actual = FinalPractice.LargestOfLastThree(null);
             assertEquals(0, actual);
         }
+
+        /* Test for branchNodeOdd */
+
+        @Test
+        void testForBranchNode() {
+            TreeNode root = new TreeNode(15,
+            new TreeNode(9,
+                new TreeNode(8,
+                    new TreeNode(2),
+                    new TreeNode(6)
+                ),
+                new TreeNode(11)
+            ),
+            new TreeNode(4,
+                new TreeNode(21, new TreeNode(0), null),
+                new TreeNode(30,
+                    null,
+                    new TreeNode(23)
+                )
+            )
+        );
+        int expected = 45;
+        int result = FinalPractice.branchNodeOdd(root);
+        assertEquals(expected, result);
     }
+
+    @Test
+    void testForBranchNode_Null() {
+    int expected = 0;
+    int result = FinalPractice.branchNodeOdd(null);
+    assertEquals(expected, result);
+
+    }
+    @Test
+    void testForBranchNode_Even() {
+        TreeNode root = new TreeNode(10,
+            new TreeNode(8,
+                new TreeNode(2,
+                    new TreeNode(0),
+                    null
+                ),
+                new TreeNode(6)
+            ),
+            new TreeNode(4,
+                new TreeNode(14),
+                new TreeNode(20,
+                    null,
+                    new TreeNode(22)
+                )
+            )
+        );
+        int expected = 0;
+        int result = FinalPractice.branchNodeOdd(root);
+        assertEquals(expected, result);
+    }
+
+    @Test
+    void testForBranchNode_One() {
+        TreeNode root = new TreeNode(12, new TreeNode(8), null);
+        int expected = 0;
+        int result = FinalPractice.branchNodeOdd(root);
+        assertEquals(expected, result);
+    }
+}
         
  
