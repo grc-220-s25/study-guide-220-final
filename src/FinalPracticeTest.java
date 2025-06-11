@@ -99,7 +99,7 @@ public class FinalPracticeTest {
         int actual = FinalPractice.findLargestOfLastThree(list);
         assertEquals(99, actual);
     }
-    
+
 // SumEvenLeafNodes
 
     @Test
@@ -154,4 +154,94 @@ public class FinalPracticeTest {
         TreeNode root = null;
         assertEquals(0, FinalPractice.sumEvenLeafNodes(root));
     }
+
+    //sumOddBranchNodes
+
+    @Test
+    void testSumOddBranchNodes_whenLeftBranchIsOdd() {
+        TreeNode root = new TreeNode(10);
+        root.left = new TreeNode(3);
+        root.right = new TreeNode(12);
+        root.left.left = new TreeNode(4);
+        root.right.right = new TreeNode(8);
+        assertEquals(3, FinalPractice.sumOddBranchNodes(root));
+    }
+    @Test
+    void testSumOddBranchNodes_whenRightBranchIsOdd() {
+        TreeNode root = new TreeNode(10);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(11);
+        root.left.left = new TreeNode(4);
+        root.right.right = new TreeNode(8);
+        assertEquals(11, FinalPractice.sumOddBranchNodes(root));
+    }
+    @Test
+    void testSumOddBranchNodes_complexTree() {
+        TreeNode root = new TreeNode(10);
+        root.left = new TreeNode(6);
+        root.right = new TreeNode(-15);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(8);
+        root.left.left.left = new TreeNode(-2);
+        root.left.left.right = new TreeNode(5);
+        
+        root.right.left = new TreeNode(12);
+        root.right.right = new TreeNode(-17);
+        root.right.left.right = new TreeNode(13);
+        root.right.right.left = new TreeNode(-16);
+        root.right.right.right = new TreeNode(20);
+        assertEquals(-32, FinalPractice.sumOddBranchNodes(root));
+    }
+    @Test
+    void testSumOddBranchNodes_complexTreeIsOdd() {
+        TreeNode root = new TreeNode(9);
+        root.left = new TreeNode(7);
+        root.right = new TreeNode(15);
+        root.left.left = new TreeNode(3);
+        root.left.right = new TreeNode(9);
+        root.left.left.left = new TreeNode(1);
+        root.left.left.right = new TreeNode(19);
+
+        root.right.left = new TreeNode(11);
+        root.right.right = new TreeNode(21);
+        root.right.left.right = new TreeNode(23);
+        root.right.right.left = new TreeNode(27);
+        root.right.right.right = new TreeNode(33);
+        assertEquals(66, FinalPractice.sumOddBranchNodes(root));
+    }
+    @Test
+    void testSumOddBranchNodes_complexTreeIsEven() {
+        TreeNode root = new TreeNode(10);
+        root.left = new TreeNode(6);
+        root.right = new TreeNode(14);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(8);
+        root.left.left.left = new TreeNode(2);
+        root.left.left.right = new TreeNode(18);
+
+        root.right.left = new TreeNode(12);
+        root.right.right = new TreeNode(22);
+        root.right.left.right = new TreeNode(24);
+        root.right.right.left = new TreeNode(26);
+        root.right.right.right = new TreeNode(32);
+        assertEquals(0, FinalPractice.sumOddBranchNodes(root));
+    }
+    @Test
+    void testSumOddBranchNodes_whenRootHasTwoChildren() {
+        TreeNode root = new TreeNode(9);
+        root.left = new TreeNode(6);
+        root.right = new TreeNode(14);
+        assertEquals(9, FinalPractice.sumOddBranchNodes(root));
+    }
+    @Test
+    void testSumOddBranchNodes_whenOnlyRoot() {
+        TreeNode root = new TreeNode(9);
+        assertEquals(0, FinalPractice.sumOddBranchNodes(root));
+    }
+    @Test
+    void testSumOddBranchNodes_whenNull() {
+        TreeNode root = null;
+        assertEquals(0, FinalPractice.sumOddBranchNodes(root));
+    }
 }
+

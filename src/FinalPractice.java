@@ -73,6 +73,17 @@ public class FinalPractice {
         }
         return sumEvenLeafNodes(node.left) + sumEvenLeafNodes(node.right);
         }
-    } 
+    
+    public static int sumOddBranchNodes(TreeNode node) {
+        if (node == null) return 0;
+        
+        if (node.left != null || node.right != null) {
+            if (node.data % 2 != 0) {
+                return node.data + sumOddBranchNodes(node.left) + sumOddBranchNodes(node.right);
+            }
+        }
+        return sumOddBranchNodes(node.left) + sumOddBranchNodes(node.right);
+    }
+} 
 
 
