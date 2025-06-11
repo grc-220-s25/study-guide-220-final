@@ -47,12 +47,11 @@ public class FinalPracticeTest {
         assertEquals(30,actual);
     }
        /* Test for LargestLastThree */
-    // TODO: Make thorough tests for ALL the questions on the study guide
     @Test
     void testForLargestLastThree() {
-        ListNode list = new ListNode(4, new ListNode(8, new ListNode(15, new ListNode(16, new ListNode(23, new ListNode(42, new ListNode(11, new ListNode(55, new ListNode(34)))))))));
+        ListNode list = new ListNode(7, new ListNode(3, new ListNode(19, new ListNode(21, new ListNode(14, new ListNode(33, new ListNode(8, new ListNode(26, new ListNode(11, new ListNode(5))))))))));
         int actual = FinalPractice.LargestOfLastThree(list);
-        assertEquals(55, actual);
+        assertEquals(26, actual);
     }
 
     @Test
@@ -69,17 +68,17 @@ public class FinalPracticeTest {
     }
 
     @Test
-    void testForLargestLastThree_FewerThanThree() {
-        ListNode list = new ListNode(4, new ListNode(8));
-        int actual = FinalPractice.LargestOfLastThree(list);
-        assertEquals(8, actual);
-    }
-
-    @Test
     void testForLargestLastThree_OneNode() {
         ListNode list = new ListNode(4);
         int actual = FinalPractice.LargestOfLastThree(list);
         assertEquals(4, actual);
+    }
+
+    @Test
+    void testForLargestLastThree_TwoNode() {
+        ListNode list = new ListNode(4, new ListNode(6));
+        int actual = FinalPractice.LargestOfLastThree(list);
+        assertEquals(6, actual);
     }
 
     
@@ -87,19 +86,57 @@ public class FinalPracticeTest {
     /* Test for LeafNodeEven */
     @Test
     public void testForLeafNodeEven() {
-        TreeNode root = new TreeNode(2,
-            new TreeNode(4),
-            new TreeNode(6, new TreeNode(8), null));
-            assertEquals(12, FinalPractice.treeNodeEven(root));
+        TreeNode root = new TreeNode(12,
+            new TreeNode(6,
+                new TreeNode(4,
+                    new TreeNode(3),
+                    null),
+                new TreeNode(8)),
+            new TreeNode(18,
+                new TreeNode(16),
+                new TreeNode(20,
+                    null,
+                    new TreeNode(22)))
+        );
+        int actual = FinalPractice.treeNodeEven(root);
+        int expected = 46;
+        assertEquals(expected, actual);
         }
         
-        @Test
-    public void testForLeafNodeOdd() {
-        TreeNode root = new TreeNode(1,
-            new TreeNode(3),
-            new TreeNode(5, new TreeNode(7), new TreeNode(9)));
-            assertEquals(0, FinalPractice.treeNodeEven(root));
-        }    
+    @Test
+    public void testForLeafNodeNull() {
+        assertEquals(0, FinalPractice.treeNodeEven(null));
+        }
+    
+    @Test
+    public void testForLeafNodeSinlge() {
+            TreeNode root = new TreeNode(12);
+            int actual = FinalPractice.treeNodeEven(root);
+            int expected = 12;
+            assertEquals(expected, actual);
+            }
+
+   @Test
+   public void testForLeafNodeDup() {
+    TreeNode root = new TreeNode(12,
+            new TreeNode(12,
+                new TreeNode(12,
+                    new TreeNode(12),
+                    null),
+                new TreeNode(12)),
+            new TreeNode(12,
+                new TreeNode(12),
+                new TreeNode(12,
+                    null,
+                    new TreeNode(12)))
+        );
+        int actual = FinalPractice.treeNodeEven(root);
+        int expected = 48;
+        assertEquals(actual, expected);
+   }
+    
+
+
 
     /* Test for HashMaps */
 

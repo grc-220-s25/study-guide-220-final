@@ -65,36 +65,16 @@ public class FinalPractice {
         int secondLast = 0;
         int last = 0;
 
-        int count = 0;
-        while(current != null) {
-            count++;
-            current = current.next;
-        }
-
-        current = head;
-        int max = Integer.MIN_VALUE;
-
-        if(count < 3) {
-            while(current != null) {
-            if(current.data > max) {
-                max = current.data;
-            }
-            current = current.next;
-        }
-        return max;
-
-    } else {
-
         while(current != null) {
 
             firstLast = secondLast;
             secondLast = last;
             last = current.data;
+            
             current = current.next;
         }
-       int maxOfThree = Math.max(Math.max(firstLast, secondLast), last);
-       return maxOfThree;
-        }
+        int maxOfThree = Math.max(Math.max(firstLast, secondLast), last);
+        return maxOfThree;
     }
 
     public static int LargestlastFour(ListNode head) {
