@@ -134,9 +134,69 @@ public class FinalPracticeTest {
     @Test
     void testlargestOfLastThree_AllTheSame(){
     ListNode list = new ListNode(100,
-    new ListNode(1000,
-    new ListNode(1000)));
+    new ListNode(100,
+    new ListNode(100)));
     int actual = FinalPractice.largestOfLastThree(list);
+    assertEquals(100, actual);
+    }
+    //TODO: Make tests for LargestOFLastFour
+    @Test
+    void testlargestOfLastFour_LargestIsActuallyLargestOfFour(){
+        ListNode list = new ListNode(7,
+    new ListNode(3,
+    new ListNode(19,
+    new ListNode(21,
+    new ListNode(14,
+    new ListNode(33,
+    new ListNode(8,
+    new ListNode(26,
+    new ListNode(11,
+    new ListNode(5))))))))));
+    int actual = FinalPractice.largestOfLastFour(list);
+    assertEquals(26, actual);
+    }
+    @Test
+    void testlargestOfLastFour_AllNegative(){
+        ListNode list = new ListNode(-7,
+    new ListNode(-3,
+    new ListNode(-19,
+    new ListNode(-21,
+    new ListNode(-14,
+    new ListNode(-33,
+    new ListNode(-8,
+    new ListNode(-26,
+    new ListNode(-11,
+    new ListNode(-5))))))))));
+    int actual = FinalPractice.largestOfLastFour(list);
+    assertEquals(-5, actual);
+    }
+    @Test
+    void testlargestOfLastFour_OnlyNull(){
+    int actual = FinalPractice.largestOfLastFour(null);
+    assertEquals(0, actual);
+    }
+    @Test
+    void testlargestOfLastFour_OnlyOneValue(){
+    ListNode list = new ListNode(100);
+    int actual = FinalPractice.largestOfLastFour(list);
+    assertEquals(100, actual);
+    }
+    @Test
+    void testlargestOfLastFour_OnlyFour(){
+    ListNode list = new ListNode(10,
+    new ListNode(100,
+    new ListNode(1000, 
+    new ListNode(10000))));
+    int actual = FinalPractice.largestOfLastFour(list);
+    assertEquals(10000, actual);
+    }
+    @Test
+    void testlargestOfLastFour_AllTheSame(){
+    ListNode list = new ListNode(1000,
+    new ListNode(1000,
+    new ListNode(1000,
+     new ListNode(1000))));
+    int actual = FinalPractice.largestOfLastFour(list);
     assertEquals(1000, actual);
     }
     //TODO: Make tests for sumOfLeafevenLeafNodes

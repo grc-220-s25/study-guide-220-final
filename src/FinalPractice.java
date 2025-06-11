@@ -87,7 +87,7 @@ public class FinalPractice {
       */
      public static int largestOfLastThree(ListNode head){
         if (head == null) return 0;
-        if (head.next == null || head.next == null || head.next.next == null) {
+        if (head == null || head.next == null || head.next.next == null) {
             return head.data;
         }
         int first = Integer.MIN_VALUE;
@@ -121,7 +121,7 @@ public class FinalPractice {
      }
      public static int largestOfLastFour(ListNode head){
         if (head == null) return 0;
-        if (head.next == null || head.next == null || head.next.next == null) {
+        if (head == null || head.next == null || head.next.next == null || head.next.next.next == null) {
             return head.data;
         }
         int first = Integer.MIN_VALUE;
