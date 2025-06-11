@@ -10,7 +10,47 @@ public class FinalPracticeTest {
         assertEquals(95, actual);
     }
 
-    // TODO: Make more tests for oddIndexSum
+    @Test
+    public void testTwoElements() {
+        ListNode test4 = new ListNode(5, new ListNode(20));
+        assertEquals(20, sumOddIndexes(test4));
+    }
 
-    // TODO: Make thorough tests for ALL the questions on the study guide
+    @Test
+    public void testOddIndexesZero() {
+        ListNode test5 = new ListNode(1,
+                            new ListNode(0,
+                            new ListNode(2,
+                            new ListNode(0,
+                            new ListNode(3,
+                            new ListNode(0))))));
+        assertEquals(0, sumOddIndexes(test5));
+    }
+
+    @Test
+    public void testEvenIndexesZero() {
+        ListNode test6 = new ListNode(0,
+                            new ListNode(7,
+                            new ListNode(0,
+                            new ListNode(5,
+                            new ListNode(0,
+                            new ListNode(3))))));
+        assertEquals(15, sumOddIndexes(test6));
+    }
+
+    // Helper method if not already imported
+    public static int sumOddIndexes(ListNode head) {
+        int index = 0, sum = 0;
+        ListNode current = head;
+        while (current != null) {
+            if (index % 2 == 1) {
+                sum += current.data;
+            }
+            current = current.next;
+            index++;
+        }
+        return sum;
+    }
 }
+
+
