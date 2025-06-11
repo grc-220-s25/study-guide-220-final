@@ -90,7 +90,62 @@ public class FinalPracticeTest {
 
     ListNode twoNodes = new ListNode(10, new ListNode(20));
     assertEquals(-1, FinalPractice.maxOfLastThree(twoNodes));
-}
+    }
+    @Test
+    public void testExampleTree() {
+        TreeNode root = new TreeNode(12,
+            new TreeNode(6,
+                new TreeNode(4,
+                    new TreeNode(3), null),
+                new TreeNode(8)),
+            new TreeNode(18,
+                new TreeNode(16),
+                new TreeNode(20,
+                    null, new TreeNode(22)))
+        );
+
+        assertEquals(46, FinalPractice.sumEvenLeaves(root)); // 8 + 16 + 22
+    }
+
+    @Test
+    public void testAllOddLeaves() {
+        TreeNode root = new TreeNode(5,
+            new TreeNode(3),
+            new TreeNode(7,
+                null, new TreeNode(9))
+        );
+
+        assertEquals(0, FinalPractice.sumEvenLeaves(root)); // All leaves are odd
+    }
+
+    @Test
+    public void testAllEvenLeaves() {
+        TreeNode root = new TreeNode(2,
+            new TreeNode(4),
+            new TreeNode(6,
+                null, new TreeNode(8))
+        );
+
+        assertEquals(4 + 8, FinalPractice.sumEvenLeaves(root));
+    }
+
+    @Test
+    public void testSingleLeafEven() {
+        TreeNode root = new TreeNode(10);
+        assertEquals(10, FinalPractice.sumEvenLeaves(root)); // It's a leaf and even
+    }
+
+    @Test
+    public void testSingleLeafOdd() {
+        TreeNode root = new TreeNode(9);
+        assertEquals(0, FinalPractice.sumEvenLeaves(root)); // It's a leaf but odd
+    }
+
+    @Test
+    public void testEmptyTree() {
+        assertEquals(0, FinalPractice.sumEvenLeaves(null));
+    }
+
 }
 
 
