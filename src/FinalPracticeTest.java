@@ -215,6 +215,71 @@ public class FinalPracticeTest {
         int actual = FinalPractice.sumOfLeafevenLeafNodes(null);
         assertEquals(0, actual);
     }
-    
+
+    //TODO: make tests for sumOfoddBranchNodes
+    /*
+       Tree:
+            15
+          /    \
+         9      4
+        / \    /  \
+       8   11 21   30
+      / \       \
+     2   6       23
+     */
+    @Test
+    void sumOfoddBranchNodes_allExampleTest(){
+        TreeNode tree = new TreeNode(15,
+        //left
+        new TreeNode(9,
+        new TreeNode(8,
+        new TreeNode(2,null,null),
+        new TreeNode(6,null,null)),
+        new TreeNode(11,null,null)),
+        //right
+        new TreeNode(4,
+        new TreeNode(21,null,new TreeNode(23,null,null)),
+        new TreeNode(30,null,null)));
+        int actual = FinalPractice.sumOfoddBranchNodes(tree);
+
+        assertEquals(45, actual);
+    }
+    @Test
+    void sumOfoddBranchNodes_TreeNodeIsNull(){
+        int actual = FinalPractice.sumOfoddBranchNodes(null);
+        assertEquals(0, actual);
+    }
+    @Test
+    void sumOfoddBranchNodes_TwoBranchNodesodd(){
+        TreeNode tree = new TreeNode(2,
+        new TreeNode(4,
+        new TreeNode(1,null,null),
+         null),
+        new TreeNode(4,
+        null,
+        new TreeNode(1,null,null)));
+        int actual = FinalPractice.sumOfoddBranchNodes(tree);
+        assertEquals(2, actual);
+    }
+    @Test
+    void sumOfoddBranchNodes_AllEvenNodes(){
+        TreeNode tree = new TreeNode(10,
+        new TreeNode(10,
+        new TreeNode(10,null,null),
+         null),
+        new TreeNode(10,
+        null,
+        new TreeNode(10,null,null)));
+
+        int actual = FinalPractice.sumOfoddBranchNodes(tree);
+        assertEquals(0, actual);
+    }
+    @Test
+    void sumOfoddBranchNodes_AllOddNodes(){
+        TreeNode tree = new TreeNode(1, new TreeNode(1, new TreeNode(1, new TreeNode(1, null,null),null),null), new TreeNode(1, null, new TreeNode(1,null, new TreeNode(1,null,null))));
+
+        int actual = FinalPractice.sumOfoddBranchNodes(tree);
+        assertEquals(5, actual);
+    }
      
 }
