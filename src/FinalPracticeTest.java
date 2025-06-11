@@ -66,4 +66,25 @@ public class FinalPracticeTest {
         int actual = FinalPractice.sumEvenLeafNodes(tree);
         assertEquals(0, actual);
     }
+
+    @Test
+    void testSumOddBranchNodes_allEvenBranches() {
+        TreeNode tree = new TreeNode(2, new TreeNode(4, new TreeNode(6), new TreeNode(8)), new TreeNode(10, new TreeNode(12), null));
+        int actual = FinalPractice.sumOddBranchNodes(tree);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    void testSumOddBranchNodes_leafOnly() {
+        TreeNode tree = new TreeNode(3);
+        int actual = FinalPractice.sumOddBranchNodes(tree);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    void testSumOddBranchNodes_emptyTree() {
+        TreeNode tree = null;
+        int actual = FinalPractice.sumOddBranchNodes(tree);
+        assertEquals(0, actual);
+    }
 }

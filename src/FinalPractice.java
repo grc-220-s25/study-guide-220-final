@@ -64,4 +64,20 @@ public class FinalPractice {
 
         return sumEvenLeafNodes(root.left) + sumEvenLeafNodes(root.right);
     }
+
+    public static int sumOddBranchNodes(TreeNode root) {
+        if (root == null) return 0;
+
+        boolean isBranch = root.left != null || root.right != null;
+        int sum = 0;
+
+        if (isBranch && root.data % 2 != 0) {
+            sum += root.data;
+        }
+
+        sum += sumOddBranchNodes(root.left);
+        sum += sumOddBranchNodes(root.right);
+
+        return sum;
+    }
 }
