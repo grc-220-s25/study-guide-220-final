@@ -1,5 +1,8 @@
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.jupiter.api.Test;
 
 public class FinalPracticeTest {
@@ -86,5 +89,31 @@ public class FinalPracticeTest {
         TreeNode tree = null;
         int actual = FinalPractice.sumOddBranchNodes(tree);
         assertEquals(0, actual);
+    }
+
+    @Test
+    void testFrequencyMap_singleNode() {
+        ListNode list = new ListNode(42);
+        Map<Integer, Integer> actual = FinalPractice.frequencyMap(list);
+        Map<Integer, Integer> expected = new HashMap<>();
+        expected.put(42, 1);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testFrequencyMap_duplicatesOnly() {
+        ListNode list = new ListNode(1, new ListNode(1, new ListNode(1)));
+        Map<Integer, Integer> actual = FinalPractice.frequencyMap(list);
+        Map<Integer, Integer> expected = new HashMap<>();
+        expected.put(1, 3);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testFrequencyMap_emptyList() {
+        ListNode list = null;
+        Map<Integer, Integer> actual = FinalPractice.frequencyMap(list);
+        Map<Integer, Integer> expected = new HashMap<>();
+        assertEquals(expected, actual);
     }
 }

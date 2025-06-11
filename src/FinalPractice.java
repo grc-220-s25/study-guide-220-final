@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class FinalPractice {
     public static void main(String[] args) {
         // Feel free to call your methods here to experiment
@@ -79,5 +82,17 @@ public class FinalPractice {
         sum += sumOddBranchNodes(root.right);
 
         return sum;
+    }
+
+    public static Map<Integer, Integer> frequencyMap(ListNode head) {
+        Map<Integer, Integer> freqMap = new HashMap<>();
+
+        ListNode current = head;
+        while (current != null) {
+            freqMap.put(current.data, freqMap.getOrDefault(current.data, 0) + 1);
+            current = current.next;
+        }
+
+        return freqMap;
     }
 }
