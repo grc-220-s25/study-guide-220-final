@@ -139,5 +139,82 @@ public class FinalPracticeTest {
     int actual = FinalPractice.largestOfLastThree(list);
     assertEquals(1000, actual);
     }
+    //TODO: Make tests for sumOfLeafevenLeafNodes
+    
+    @Test
+    void testSumOfLeafevenLeafNodes_twoEvenLeafsOnly(){
+        TreeNode tree = new TreeNode(25,
+        //left
+        new TreeNode(15,
+         new TreeNode(10,
+         null,
+         null),
+          new TreeNode(18,
+          new TreeNode(17,
+          null, 
+          null),
+          null)),
+        //right
+        new TreeNode(35, 
+        null, 
+        new TreeNode(40,
+        new TreeNode(38,
+        null,null),
+        null)));
+        int actual = FinalPractice.sumOfLeafevenLeafNodes(tree);
+        assertEquals(48, actual);
+    }
+    @Test
+    void testSumOfLeafevenLeafNodes_onlyOneTreenode(){
+        TreeNode tree = new TreeNode(0);
+        int actual = FinalPractice.sumOfLeafevenLeafNodes(tree);
+        assertEquals(0, actual);
+    }
+    @Test
+    void testSumOfLeafevenLeafNodes_allOddNumbers(){
+        TreeNode tree = new TreeNode(1,
+        new TreeNode(1,
+        new TreeNode(1, null,null),
+        new TreeNode(1, null,null)),
+        //right
+        new TreeNode(1,
+        new TreeNode(1, null, null),
+        new TreeNode(1, null, null)));
+        int actual = FinalPractice.sumOfLeafevenLeafNodes(tree);
+        assertEquals(0, actual);
+    }
+    @Test
+    void testSumOfLeafevenLeafNodes_onlyOneEvenLeaf(){
+        TreeNode tree = new TreeNode(0,
+        new TreeNode(1,null,null),
+        new TreeNode(2,null,null));
+        int actual = FinalPractice.sumOfLeafevenLeafNodes(tree);
+        assertEquals(2, actual);
+    }
+    @Test
+    void testSumOfLeafevenLeafNodes_oneLeafEvenOfpairs(){
+        TreeNode tree = new TreeNode(1,
+        new TreeNode(1,
+        new TreeNode(2, null,null),
+        new TreeNode(1, null,null)),
+        //right
+        new TreeNode(1,
+        new TreeNode(1, null, null),
+        new TreeNode(2, null, null)));
+        int actual = FinalPractice.sumOfLeafevenLeafNodes(tree);
+        assertEquals(4, actual);
+    }
+    @Test
+    void testSumOfLeafevenLeafNodes_oneLeafEvenSum(){
+        TreeNode tree = new TreeNode(1,new TreeNode(12, null, null), null);
+        int actual = FinalPractice.sumOfLeafevenLeafNodes(tree);
+        assertEquals(12, actual);
+    }
+    @Test
+    void testSumOfLeafevenLeafNodes_singleElementIsNull(){
+        int actual = FinalPractice.sumOfLeafevenLeafNodes(null);
+        assertEquals(0, actual);
+    }
+    
      
 }

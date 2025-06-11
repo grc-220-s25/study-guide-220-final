@@ -99,5 +99,27 @@ public class FinalPractice {
      }
      public static int largestOfLastFour(ListNode head){
         return 0;
-     }
+    }
+    /*
+     * Given a reference to the root of a tree, return the sum of the leaf nodes with even values in the tree. Do not include any odd or branch nodes.
+        Example:
+        Tree:
+               12
+             /    \
+            6      18
+           / \    /  \
+          4   8  16   20
+         /              \
+        3                22
+
+        Expected Answer: 46
+        The leaf nodes are 3   8   16   22, and the even ones are 8   16   22.
+        The sum of the even leaf nodes is 8+16+22 = 46
+        POSSIBLE VARIATION: Sum of leaf nodes with odd values
+
+
+     */
+    public static int sumOfLeafevenLeafNodes(TreeNode head){
+        return 0;
+    }
 }   
