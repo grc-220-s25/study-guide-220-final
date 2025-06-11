@@ -120,7 +120,27 @@ public class FinalPractice {
          */
      }
      public static int largestOfLastFour(ListNode head){
-        return 0;
+        if (head == null) return 0;
+        if (head.next == null || head.next == null || head.next.next == null) {
+            return head.data;
+        }
+        int first = Integer.MIN_VALUE;
+        int second = Integer.MIN_VALUE;
+        int third = Integer.MIN_VALUE;
+        int fourth = Integer.MIN_VALUE;
+        int maxOfLastFour = 0;
+        while (head != null && head.next != null && head.next.next != null && head.next.next.next != null) {
+            first = head.data;
+            second = head.next.data;
+            third = head.next.next.data;
+            fourth = head.next.next.next.data;
+            head = head.next;
+        }
+        maxOfLastFour = Math.max(Math.max(first, second), Math.max(third, fourth));
+        
+        
+
+        return maxOfLastFour;
     }
     /*
      * Given a reference to the root of a tree, return the sum of the leaf nodes with even values in the tree. Do not include any odd or branch nodes.
@@ -217,6 +237,29 @@ public class FinalPractice {
 
      */
     public static int sumOfoddBranchNodes(TreeNode tree){
-        return 0;
+        /*
+         check if null return 0;
+         create a sumofOddbranche varibel
+         use recursion to check only the branch nodes if node.left || node.right != null
+
+         if the current data % 2 != 0 
+         add to the sumOfoddBranches varible
+           Tree:
+            15
+          /    \
+         9      4
+        / \    /  \
+       8   11 21   30
+      / \        \
+     2   6        23
+         */
+        if(tree == null) return 0;
+        int sumOfOddbranches = 0;
+        if ((tree.left != null || tree.right != null) && tree.data % 2 != 0) {
+            sumOfOddbranches += tree.data;
+        }
+        sumOfOddbranches += sumOfoddBranchNodes(tree.left);
+        sumOfOddbranches += sumOfoddBranchNodes(tree.right);
+        return sumOfOddbranches;
     }
 }   

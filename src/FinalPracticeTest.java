@@ -252,12 +252,12 @@ public class FinalPracticeTest {
     @Test
     void sumOfoddBranchNodes_TwoBranchNodesodd(){
         TreeNode tree = new TreeNode(2,
-        new TreeNode(4,
-        new TreeNode(1,null,null),
+        new TreeNode(1,
+        new TreeNode(4,null,null),
          null),
-        new TreeNode(4,
+        new TreeNode(1,
         null,
-        new TreeNode(1,null,null)));
+        new TreeNode(4,null,null)));
         int actual = FinalPractice.sumOfoddBranchNodes(tree);
         assertEquals(2, actual);
     }
