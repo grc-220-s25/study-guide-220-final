@@ -16,9 +16,78 @@ public class FinalPractice {
      * @return the sum of the values at odd indexes
      */
     public static int oddIndexSum(ListNode head) {
-        // TODO: implement this AND MAKE MORE UNIT TESTS FOR IT
-        return -1;
+        int index = 0;
+        int sum = 0;
+        ListNode current = head;
+
+        while (current != null) {
+            if (index % 2 != 0) {
+                sum += current.data;
+            }
+            current = current.next;
+            index++;
+        }
+
+    return sum;
     }
 
-    // TODO: implement the rest of the study guide AND MAKE GOOD UNIT TESTS
+    public static int maxOfLastThree(ListNode head) {
+
+        if (head == null || head.next == null || head.next.next == null) {
+            return -1;
+        }
+
+        ListNode first = head;
+        ListNode second = null;
+        ListNode third = null;
+
+        if (head.next != null) {
+            second = head.next;
+        }
+
+        if (second != null && second.next != null) {
+            third = second.next;
+        }
+
+        while (third != null && third.next != null) {
+            first = second;
+            second = third;
+            third = third.next;
+        }
+
+        return Math.max(first.data, Math.max(second.data, third.data));
+    }
+
+    public static int sumEvenLeaves(TreeNode node) {
+    if (node == null) {
+        return 0;
+    }
+
+    if (node.left == null && node.right == null) {
+        return (node.data % 2 == 0) ? node.data : 0;
+    }
+
+    return sumEvenLeaves(node.left) + sumEvenLeaves(node.right);    
+}
+
+    public static int sumOddBranches(TreeNode node) {
+    if (node == null) {
+        return 0;
+    }
+
+    boolean isBranch = node.left != null || node.right != null;
+    int sum = 0;
+
+    if (isBranch && node.data % 2 != 0) {
+        sum += node.data;
+    }
+
+    sum += sumOddBranches(node.left);
+    sum += sumOddBranches(node.right);
+
+    return sum;
+}
+
+
+
 }
