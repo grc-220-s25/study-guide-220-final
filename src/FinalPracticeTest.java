@@ -111,4 +111,9 @@ void testOddIndexSum_allZeros() {
         );
         assertEquals(expected, FinalPractice.frequencyMap(list));
     }
+    @Test
+void testSumEvenLeaf_singleEvenLeaf() {
+    TreeNode tree = new TreeNode(10, null, new TreeNode(8)); // 8 is the only leaf and it's even
+    assertEquals(8, FinalPractice.sumEvenLeaf(tree));
+}
 }
