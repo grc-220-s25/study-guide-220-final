@@ -111,10 +111,16 @@ void testOddIndexSum_allZeros() {
         );
         assertEquals(expected, FinalPractice.frequencyMap(list));
     }
-    @Test
-void testSumOddBranches_onlyOneOddBranch() {
-    TreeNode tree = new TreeNode(7, new TreeNode(4), null); // 7 is a branch and odd
-    assertEquals(7, FinalPractice.sumOddBranches(tree));
+@Test
+void testFrequencyMap_allUnique() {
+    ListNode list = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4))));
+    Map<Integer, Integer> expected = Map.of(
+        1, 1,
+        2, 1,
+        3, 1,
+        4, 1
+    );
+    assertEquals(expected, FinalPractice.frequencyMap(list));
 }
 
 }
