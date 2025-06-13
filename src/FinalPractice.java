@@ -20,7 +20,7 @@ public class FinalPractice {
      * @return the sum of the values at odd indexes
      */
     public static int oddIndexSum(ListNode head) {
-        // TODO: implement this AND MAKE MORE UNIT TESTS FOR IT
+
         if(head == null) return 0;
 
         ListNode current = head;
@@ -57,24 +57,36 @@ public class FinalPractice {
     }
     
     public static int LargestOfLastThree(ListNode head) {
-        if(head == null) return 0;
 
         ListNode current = head;
 
-        int firstLast = 0;
-        int secondLast = 0;
-        int last = 0;
+        // int count = 0;
+
+        // while(current != null) {
+        //     count++;
+        //     current = current.next;
+        // }
+
+        // if(count < 3) {
+        //     return -1;
+        // }
+
+        // current = head;
+
+        int firstLastNode = 0;
+        int secondLastNode = 0;
+        int thirdLastNode = 0;
 
         while(current != null) {
 
-            firstLast = secondLast;
-            secondLast = last;
-            last = current.data;
+            firstLastNode = secondLastNode;
+            secondLastNode = thirdLastNode;
+            thirdLastNode = current.data;
 
             current = current.next;
         }
-        int maxOfThree = Math.max(Math.max(firstLast, secondLast), last);
-        return maxOfThree;
+        int largestOfLastMax = Math.max(Math.max(firstLastNode, secondLastNode), thirdLastNode);
+        return largestOfLastMax;
     }
 
     public static int LargestlastFour(ListNode head) {
@@ -111,8 +123,18 @@ public class FinalPractice {
                 sum += root.data;
             }
         }
-        sum += treeNodeEven(root.left);
-        sum += treeNodeEven(root.right);
+        
+        return sum + treeNodeEven(root.right) + treeNodeEven(root.left) ;
+    }
+
+    public static int leafNodeOdd(TreeNode root) {
+
+        int sum = 0;
+        if(root.left == null && root.right == null) {
+            if(root.data % 2 == 0) {
+                sum += root.data;
+            }
+        }
         return sum;
     }
 
@@ -123,14 +145,12 @@ public class FinalPractice {
         if((root.left != null || root.right != null) && root.data % 2 != 0) {
                 sum += root.data;
             }
-            sum += branchNodeOdd(root.left);
-            sum += branchNodeOdd(root.right);
-            return sum;
+
+            return sum + branchNodeOdd(root.left) + branchNodeOdd(root.right);
     
         }
         
     public static Map<Integer, Integer> intMap(ListNode head) {
-
         if(head == null) return new HashMap<>();
 
         ListNode current = head;
@@ -140,13 +160,13 @@ public class FinalPractice {
         while(current != null) {
             int value = current.data;
             if(countMap.containsKey(value)) {
-                countMap.put(value, countMap.get(value) + 1 );
+                countMap.put(value, countMap.get(value) + 1);
             } else {
-                countMap.put(value, 1);
+                countMap.put(value,1);
             }
             current = current.next;
         }
-            return countMap;
+        return countMap;
     }
 }
 
